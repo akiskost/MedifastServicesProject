@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>gr.aueb.cf</groupId>
-  <artifactId>teachers-maven</artifactId>
+  <artifactId>finalproj</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>teachers-maven Maven Webapp</name>
+  <name>Finalproj</name>
   <!-- FIXME change it to the project's website -->
   <url>127.0.0.1</url>
 
@@ -22,16 +22,13 @@
   <dependencies>
   
 	<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-	<!--<dependency>
+	<dependency>
 	    <groupId>javax.servlet</groupId>
 	    <artifactId>javax.servlet-api</artifactId>
 	    <version>4.0.1</version>
 	    <scope>provided</scope>
-	</dependency>-->
+	</dependency>
 
-  
-  
-  
   	<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 	<dependency>
 	    <groupId>com.google.code.gson</groupId>
@@ -46,8 +43,6 @@
 	    <version>2.13.3</version>
 	</dependency>
 
-
-
 	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
 	<dependency>
     	<groupId>javax.servlet</groupId>
@@ -55,7 +50,6 @@
     	<version>1.2</version>
 	</dependency>
 
-  
 	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 	<dependency>
 	    <groupId>mysql</groupId>
@@ -79,12 +73,19 @@
 	    <scope>test</scope>
 	</dependency>
 
-  
+    <dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongodb-jdbc</artifactId>
+        <version>2.0.0</version>
+    </dependency>
+
+
+
   
   </dependencies>
 
   <build>
-    <finalName>teachers-maven</finalName>
+    <finalName>final-proj</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
       
@@ -133,4 +134,5 @@
       </plugins>
     </pluginManagement>
   </build>
+
 </project>

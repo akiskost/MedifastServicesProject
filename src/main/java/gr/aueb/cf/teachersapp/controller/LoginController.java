@@ -24,7 +24,7 @@ public class LoginController extends HttpServlet {
 		
 		// call service
 		
-		if ( (email.equals("a8anassis@gmail.com")) && (password.equals("123")) ) {
+		if ( (email.equals("akis@gmail.com")) && (password.equals("123")) ) {
 			// return response
 			request.getRequestDispatcher("/jsps/teachersmenu.jsp").forward(request, response);
 		} else {

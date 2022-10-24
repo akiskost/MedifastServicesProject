@@ -7,9 +7,9 @@ $(document).ready(function() {
 function fetchTeachersFromJSON(lastname) {
     let xhr = new XMLHttpRequest()
 
-    xhr.open('GET', `/teachers-maven/teachers?lastname=${lastname}`, true)
+    xhr.open('GET', `/finalproj/teachers?lastname=${lastname}`, true)
 
-    xhr.timeout = 5000
+    xhr.timeout = 15000
     xhr.ontimeout = (e) => onAPIError()
 
     xhr.onreadystatechange = function() {
