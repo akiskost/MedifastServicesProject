@@ -19,9 +19,8 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">We Teach</a></li>
-                    <li><a href="#">We Innovate</a></li>
+                    <li><a href="${pageContext.request.contextPath}/jsps/teachersmenu.jsp">Patients</a></li>
+                    <li><a href="${pageContext.request.contextPath}/jsps/patientsexams.jsp">Exams</a></li>
                     <li><a href="${pageContext.request.contextPath}/jsps/login.jsp">Login</a></li>
                 </ul>
             </div>

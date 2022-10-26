@@ -1,5 +1,5 @@
 body {
-	background: #A57D84;
+	background: #242F40;
 	margin: 0;
 }
 
@@ -40,7 +40,7 @@ input[type=text].search {
 }
 
 .color-btn {
-	background-color: #B5D6C5;
+	background-color: #CCA43B;
 }
 
 /* Remove focus border added by browser */

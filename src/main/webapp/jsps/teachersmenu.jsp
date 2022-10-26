@@ -14,7 +14,7 @@
         
         <div class="search-wrapper">
 	        <div class="bot-gap">
-	            <span class="title">Teachers Search</span>
+	            <span class="title">Patients Search</span>
 	        </div>
 	        <div class="bot-gap">
 	            <form method="GET" action="${pageContext.request.contextPath}/search">
@@ -27,7 +27,7 @@
         
         <div class="insert-wrapper">
 	        <div class="bot-gap">
-	            <span class="title">Teachers Insert</span>
+	            <span class="title">New Patient</span>
 	        </div>
 	        <div class="bot-gap">
 	            <form method="GET" action="${pageContext.request.contextPath}/insert">
@@ -37,7 +37,9 @@
 	                <button class="search-btn rounded color-btn" type="submit">Insert</button>
 	            </form>
 	        </div>
-        </div>     
+        </div>
+
+
     </div>
     
     <div class="center">

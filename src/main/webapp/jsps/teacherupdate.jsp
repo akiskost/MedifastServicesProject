@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Delete Teacher Form</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/teachersmenu.css">
 </head>
 <body>
 

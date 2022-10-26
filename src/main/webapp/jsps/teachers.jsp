@@ -19,6 +19,7 @@
                 <th>Last Name</th>
                 <th>Delete</th>
                 <th>Update</th>
+                <th>View</th>
             </tr>
 
             <c:forEach var = "teacher" items="${teachers}">
@@ -28,6 +29,7 @@
                     <td>${teacher.sname}</td>
                     <td><a href="${pageContext.request.contextPath}/delete?id=${teacher.id}&fname=${teacher.fname}&sname=${teacher.sname}">Delete</a></td>
                     <td><a href="${pageContext.request.contextPath}/jsps/teacherupdate.jsp?id=${teacher.id}&fname=${teacher.fname}&sname=${teacher.sname}">Update</a></td>
+                    <td><a href="${pageContext.request.contextPath}/jsps/patientsprofile.jsp?id=${teacher.id}&fname=${teacher.fname}&sname=${teacher.sname}">View</a></td>
                 </tr>
             </c:forEach>
 
