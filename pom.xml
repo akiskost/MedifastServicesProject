@@ -54,7 +54,7 @@
 	<dependency>
 	    <groupId>mysql</groupId>
 	    <artifactId>mysql-connector-java</artifactId>
-	    <version>8.0.29</version>
+	    <version>8.0.30</version>
 	</dependency>
 
 	<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
@@ -81,11 +81,20 @@
 
 
 
-  
+<!--      <dependency>-->
+<!--          <groupId>org.mongodb</groupId>-->
+<!--          <artifactId>mongodb-driver-sync</artifactId>-->
+<!--          <version>4.7.2</version>-->
+<!--      </dependency>-->
+
+
+
+
+
   </dependencies>
 
   <build>
-    <finalName>final-proj</finalName>
+    <finalName>finalproj</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
       

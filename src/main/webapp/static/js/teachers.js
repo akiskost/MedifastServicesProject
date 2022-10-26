@@ -9,7 +9,7 @@ function fetchTeachersFromJSON(lastname) {
 
     xhr.open('GET', `/finalproj/teachers?lastname=${lastname}`, true)
 
-    xhr.timeout = 15000
+    xhr.timeout = 30000
     xhr.ontimeout = (e) => onAPIError()
 
     xhr.onreadystatechange = function() {

@@ -3,6 +3,7 @@ package gr.aueb.cf.teachersapp.dao.dbutil;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
 
 public class DBUtil {
 	private static Connection conn;
@@ -14,23 +15,13 @@ public class DBUtil {
 	
 	public static Connection openConnection() throws SQLException {
 		try {
-			Class.forName("com.mongodb.jdbc.MongoDriver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		
-//			String url = "jdbc:mongodb+srv://akiskost.xw2wo3c.mongodb.net/finalproj";
-//			String username = "akis";
-//			String password = "KvWem3SJtjG3HJmk";
-//			String database = "finalproj";
-// 			conn = DriverManager.getConnection(url, username, password, database);
-
-			java.util.Properties p = new java.util.Properties();
-			p.setProperty("user", "akis");
-			p.setProperty("password", "KvWem3SJtjG3HJmk");
-			p.setProperty("database", "finalproj");
-			System.out.println("Connecting to database...");
-			Connection conn = DriverManager.getConnection("jdbc:mongodb+srv://akiskost.xw2wo3c.mongodb.net/?keepAlive=true&poolSize=30&autoReconnect=true&socketTimeoutMS=360000&connectTimeoutMS=360000", p);
-// 			Connection conn = DriverManager.getConnection("jdbc:mongodb//akis:X3RLbnYWCUXE8qyA@akiskost.xw2wo3c.mongodb.net/?retryWrites=true&w=majority");
-
-
+			String url = "jdbc:mysql://localhost:3306/tsdb?serverTimezone=UTC";
+			String username = "thanos3";
+			String password = "Thanos3";
+			
+			conn = DriverManager.getConnection(url, username, password);
 			return conn;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -45,3 +36,56 @@ public class DBUtil {
 	}
 }
 
+//MONGO DB UTIL UNUSED
+
+//public class DBUtil {
+//
+//	private static Connection conn;
+//	private DBUtil() {}
+//	private static final String URL = "jdbc:mongodb://cluster0.ktad2.mongodb.net:27017/test?ssl=true&authSource=admin";
+//
+//	public static Connection openConnection() throws SQLException {
+//
+//		java.util.Properties p = new java.util.Properties();
+//		p.setProperty("user", "akis2");
+//		p.setProperty("password", "mEkzUdi3RPtgAM1f");
+//		p.setProperty("database", "test");
+//		p.setProperty("loglevel", Level.SEVERE.getName());
+//
+//		//Registers JDBC Driver
+//		try {
+//			Class.forName("com.mongodb.jdbc.MongoDriver");
+//		} catch (ClassNotFoundException e) {
+//			System.out.println("ERROR: Unable to load SQLServer JDBC Driver");
+//			e.printStackTrace();
+//		}
+//		System.out.println("MongoDB JDBC Driver has been registered...");
+//
+//
+//		//Connects to mongodb database
+//
+//		System.out.println("Trying to get a connection to the database...");
+//		try {
+//			Connection conn = DriverManager.getConnection(URL, p);
+//
+//		} catch (SQLException  e) {
+//			System.out.println("ERROR: Unable to establish a connection with the database!");
+//			e.printStackTrace();
+//		}
+//		return conn;
+//	}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//	public static void closeConnection() throws SQLException {
+//		conn.close();
+//	}
+//}
