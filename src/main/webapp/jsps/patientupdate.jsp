@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Patient profile & History of his exams</title>
+<title>Delete patient Form</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/patientsmenu.css">
 </head>
 <body>

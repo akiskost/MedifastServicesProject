@@ -12,12 +12,25 @@
 <body>
     <div class="center">
         
-        <div class="insert-wrapper">
+        <div class="search-wrapper">
 	        <div class="bot-gap">
-	            <span class="title">New Exam for patient</span>
+	            <span class="title">Patients Search</span>
 	        </div>
 	        <div class="bot-gap">
-	            <form method="GET" action="${pageContext.request.contextPath}/insertexam>
+	            <form method="GET" action="${pageContext.request.contextPath}/search">
+	                <input name="lastname" type="text" class="search rounded" placeholder="Insert patient's lastname" autofocus/>
+	                <br><br>
+	                <button class="search-btn rounded color-btn" type="submit">Search</button>
+	            </form>
+	        </div>
+        </div>
+        
+        <div class="insert-wrapper">
+	        <div class="bot-gap">
+	            <span class="title">New Patient</span>
+	        </div>
+	        <div class="bot-gap">
+	            <form method="GET" action="${pageContext.request.contextPath}/insert">
 	                <input name="lastname" type="text" class="insert rounded" placeholder="Last name" autofocus/><br>
 	                <input name="firstname" type="text" class="insert rounded" placeholder="First name"/>
 	                <br><br>

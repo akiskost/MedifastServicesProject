@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Development Course - eLearning AUEB</title>
+    <title>Welcome to MediFast</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/index.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
@@ -19,7 +19,7 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="${pageContext.request.contextPath}/jsps/teachersmenu.jsp">Patients</a></li>
+                    <li><a href="${pageContext.request.contextPath}/jsps/patientsmenu.jsp">Patients</a></li>
                     <li><a href="${pageContext.request.contextPath}/jsps/patientsexams.jsp">Exams</a></li>
                     <li><a href="${pageContext.request.contextPath}/jsps/login.jsp">Login</a></li>
                 </ul>

@@ -6,8 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teachers Search</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/teachersmenu.css">
+    <title>Patients Search</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/patientsmenu.css">
 
     <style>
         table, th, td {
@@ -27,27 +27,27 @@
         
         <div class="search-wrapper">
 	        <div class="bot-gap">
-	            <span class="title">Teachers Search</span>
+	            <span class="title">patients Search</span>
 	        </div>
 	        <div class="bot-gap">
 	            <!-- <form> -->
 	                <input id="searchInput" type="text" class="search rounded" 
-                            placeholder="Insert teacher's lastname" autofocus/>
+                            placeholder="Insert patient's lastname" autofocus/>
 	                <br><br>
 	                <button id="btn" class="search-btn rounded color-btn" type="button">Search</button>
 	            <!-- </form> -->
 	        </div>
         </div>
      
-        <h1>List of Teachers</h1>
+        <h1>List of Patients</h1>
         <p class="testp"></p>   
-        <table class="teachers-list">
+        <table class="patients-list">
 
         </table>
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/static/js/teachers.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/patients.js"></script>
     
 </body>
 </html>

@@ -104,7 +104,7 @@
 		    <version>10.0.11</version>
 		    <configuration>
 		    	<webApp>
-		    		<contextPath>/teachersapp</contextPath>
+		    		<contextPath>/patientsapp</contextPath>
 		    	</webApp>
 		    </configuration>
       </plugin>
