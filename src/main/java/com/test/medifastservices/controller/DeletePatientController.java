@@ -30,13 +30,14 @@ public class DeletePatientController extends HttpServlet {
 		// Get the data
 		int id = Integer.parseInt(request.getParameter("id").trim());
 		String firstname = request.getParameter("fname");
-		String lastname = request.getParameter("sname");
+		String lastname = request.getParameter("lname");
+
 		
 		// Construct DTO
 		PatientDTO patientDTO = new PatientDTO();
 		patientDTO.setId(id);
 		patientDTO.setFname(firstname);
-		patientDTO.setSname(lastname);
+		patientDTO.setLname(lastname);
 		
 		// Call the service
 		try {

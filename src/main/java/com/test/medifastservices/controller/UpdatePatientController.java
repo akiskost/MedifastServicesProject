@@ -28,14 +28,14 @@ public class UpdatePatientController extends HttpServlet {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		String firstname = request.getParameter("fname");
-		String lastname = request.getParameter("sname");
+		String lastname = request.getParameter("lname");
 		
 		PatientDTO oldPatientDTO = new PatientDTO();
 		oldPatientDTO.setId(id);
 		
 		PatientDTO newPatientDTO = new PatientDTO();
 		newPatientDTO.setFname(firstname);
-		newPatientDTO.setSname(lastname);
+		newPatientDTO.setLname(lastname);
 		
 		
 		try {

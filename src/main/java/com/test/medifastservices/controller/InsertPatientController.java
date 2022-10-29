@@ -32,11 +32,20 @@ public class InsertPatientController extends HttpServlet {
 		// Get the data
 		String firstname = request.getParameter("firstname").trim();
 		String lastname = request.getParameter("lastname").trim();
+		String address = request.getParameter("address").trim();
+		String phonenumber = request.getParameter("phonenumber");
+		String amka = request.getParameter("amka");
+		String idno = request.getParameter("idno");
 		
 		// Construct DTO
 		PatientDTO patientDTO = new PatientDTO();
 		patientDTO.setFname(firstname);
-		patientDTO.setSname(lastname);
+		patientDTO.setLname(lastname);
+		patientDTO.setAddress(address);
+		patientDTO.setPhoneNumber(Integer.valueOf(phonenumber));
+		patientDTO.setAmka(Integer.valueOf(amka));
+		patientDTO.setIdno(idno);
+
 		
 		// call the service and return feedback/view/data
 		try {

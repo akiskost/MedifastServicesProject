@@ -3,15 +3,24 @@ package com.test.medifastservices.model;
 public class Patient {
 	private int id;
 	private String fname;
-	private String sname;
+	private String lname;
+	private String address;
+	private Integer phoneNumber;
+	private Integer amka;
+	private String idno;
 	
 	public Patient() {}
 
-	public Patient(int id, String fname, String sname) {
+	public Patient(int id, String fname, String lname, String address, int phoneNumber, int amka, String idno) {
 		
 		this.id = id;
 		this.fname = fname;
-		this.sname = sname;
+		this.lname = lname;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.amka = amka;
+		this.idno = idno;
+
 	}
 
 	public int getId() {
@@ -30,15 +39,43 @@ public class Patient {
 		this.fname = fname;
 	}
 
-	public String getSname() {
-		return sname;
+	public String getLname() {
+		return lname;
 	}
 
-	public void setSname(String sname) {
-		this.sname = sname;
+	public void setLname(String lname) {
+		this.lname = lname;
 	}
 
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-	
-	
+	public String getAddress() {
+		return address;
+	}
+
+	public Integer getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(Integer phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public Integer getAmka() {
+		return amka;
+	}
+
+	public void setAmka(Integer amka) {
+		this.amka = amka;
+	}
+
+	public String getIdno() {
+		return idno;
+	}
+
+	public void setIdno(String idno) {
+		this.idno = idno;
+	}
 }

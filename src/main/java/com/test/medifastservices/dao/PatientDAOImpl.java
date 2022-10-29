@@ -19,12 +19,18 @@ public class PatientDAOImpl implements IPatientDAO {
 		
 		try {
 			
-			String sql = "INSERT INTO patientS (FIRSTNAME, LASTNAME) VALUES (?, ?)";
-					//+ patient.getFname() + "', '" + patient.getSname() + "')";
+			String sql = "INSERT INTO patients (FNAME, LNAME, ADDRESS, PHONENUMBER, AMKA, ID_NO) VALUES (?, ?, ?, ?, ?, ?)";
 			pst = openConnection().prepareStatement(sql);
 			pst.setString(1,  patient.getFname());
-			pst.setString(2,  patient.getSname());
-			
+			pst.setString(2,  patient.getLname());
+			pst.setString(3,  patient.getAddress());
+			pst.setInt(4,  patient.getPhoneNumber());
+			pst.setInt(5,  patient.getAmka());
+			pst.setString(6,  patient.getIdno());
+
+
+
+
 			pst.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -42,9 +48,8 @@ public class PatientDAOImpl implements IPatientDAO {
 		
 		try {
 			
-			//String sql = "DELETE FROM patientS WHERE ID = " + patient.getId();
-			
-			String sql = "DELETE FROM patientS WHERE ID =  ?";
+
+			String sql = "DELETE FROM patients WHERE PID =  ?";
 			pst = openConnection().prepareStatement(sql);
 			pst.setInt(1,  patient.getId());
 			pst.executeUpdate();
@@ -64,8 +69,9 @@ public class PatientDAOImpl implements IPatientDAO {
 		
 		try {
 			
-			String sql = "UPDATE patientS SET FIRSTNAME = '" + newPatient.getFname() + "', " + "LASTNAME = '"
-					+ newPatient.getSname() + "' WHERE ID = " + oldPatient.getId();
+			String sql = "UPDATE patients SET FNAME = '" + newPatient.getFname() + "'," +
+					" " + "LNAME = '"  + newPatient.getLname() +
+					"' WHERE PID = " + oldPatient.getId();
 			pst = openConnection().prepareStatement(sql);
 			pst.executeUpdate();
 			
@@ -86,7 +92,7 @@ public class PatientDAOImpl implements IPatientDAO {
 		
 		try {
 			
-			String sql = "SELECT ID, FIRSTNAME, LASTNAME FROM patientS WHERE LASTNAME LIKE '" + lastname + "%'";
+			String sql = "SELECT PID, FNAME, LNAME, ADDRESS, PHONENUMBER, AMKA, ID_NO FROM patients WHERE LNAME LIKE '" + lastname + "%'";
 			pst = openConnection().prepareStatement(sql);
 			rs =  pst.executeQuery();
 				
@@ -94,7 +100,11 @@ public class PatientDAOImpl implements IPatientDAO {
 				Patient patient = new Patient();
 				patient.setId(rs.getInt("ID"));
 				patient.setFname(rs.getString("FIRSTNAME"));
-				patient.setSname(rs.getString("LASTNAME"));
+				patient.setLname(rs.getString("LASTNAME"));
+				patient.setAddress(rs.getString("ADDRESS"));
+				patient.setPhoneNumber(rs.getInt("PHONENUMBER"));
+				patient.setAmka(rs.getInt("AMKA"));
+				patient.setIdno(rs.getString("ID_NO"));
 				
 				patients.add(patient);
 			}
@@ -120,16 +130,16 @@ public class PatientDAOImpl implements IPatientDAO {
 		
 		try {
 			
-			String sql = "SELECT * FROM patientS WHERE ID = " + id;
+			String sql = "SELECT * FROM patients WHERE PID = " + id;
 			
 			pst = openConnection().prepareStatement(sql);
 			rs =  pst.executeQuery();
 				
 			if (rs.next()) {
 				patient = new Patient();
-				patient.setId(rs.getInt("ID"));
-				patient.setFname(rs.getString("FIRSTNAME"));
-				patient.setSname(rs.getString("LASTNAME"));
+				patient.setId(rs.getInt("PID"));
+				patient.setFname(rs.getString("FNAME"));
+				patient.setLname(rs.getString("LNAME"));
 			}
 		
 			return patient;

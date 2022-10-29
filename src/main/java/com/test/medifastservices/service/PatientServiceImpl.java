@@ -20,8 +20,12 @@ public class PatientServiceImpl implements IPatientService {
 		
 		// Extract dto 
 		Patient patient = new Patient();
-		patient.setSname(patientDTO.getSname());
+		patient.setLname(patientDTO.getLname());
 		patient.setFname(patientDTO.getFname());
+		patient.setAddress(patientDTO.getAddress());
+		patient.setPhoneNumber(patientDTO.getPhoneNumber());
+		patient.setAmka(patientDTO.getAmka());
+		patient.setIdno(patientDTO.getIdno());
 		
 		try {
 			patientDAO.insert(patient);
@@ -61,7 +65,7 @@ public class PatientServiceImpl implements IPatientService {
 		patientToUpdate.setId(oldPatientDTO.getId());
 		
 		Patient newPatient = new Patient();
-		newPatient.setSname(newPatientDTO.getSname());
+		newPatient.setLname(newPatientDTO.getLname());
 		newPatient.setFname(newPatientDTO.getFname());
 		
 		

@@ -41,7 +41,7 @@ function handleResults(response) {
 	        + "</td><td>"
 	        + patient.fname
 	        + "</td><td>"
-	        + patient.sname
+	        + patient.lname
 	        + "</td></tr>";
 	    }
 	

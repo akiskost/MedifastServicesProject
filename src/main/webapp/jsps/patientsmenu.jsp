@@ -33,7 +33,15 @@
 	            <form method="GET" action="${pageContext.request.contextPath}/insert">
 	                <input name="lastname" type="text" class="insert rounded" placeholder="Last name" autofocus/><br>
 	                <input name="firstname" type="text" class="insert rounded" placeholder="First name"/>
-	                <br><br>
+					<input name="address" type="text" class="insert rounded" placeholder="Address"/>
+					<input name="phonenumber" type="text" class="insert rounded" placeholder="Phone Number"/>
+					<input name="amka" type="text" class="insert rounded" placeholder="AMKA"/>
+					<input name="idno" type="text" class="insert rounded" placeholder="ID Number"/>
+
+
+
+
+					<br><br>
 	                <button class="search-btn rounded color-btn" type="submit">Insert</button>
 	            </form>
 	        </div>

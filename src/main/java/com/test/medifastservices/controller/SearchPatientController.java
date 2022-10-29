@@ -29,12 +29,12 @@ public class SearchPatientController extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		
-		String lastname = request.getParameter("lastname");
+		String lastname = request.getParameter("lname");
 		
 		// Construct DTO
 		PatientDTO patientDTO = new PatientDTO();
-		patientDTO.setSname(lastname);
-		
+		patientDTO.setLname(lastname);
+
 		try {
 			List<Patient> patients = patientServ.getpatientByLastname(lastname);
 			if (patients != null) {

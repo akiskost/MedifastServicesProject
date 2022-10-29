@@ -7,10 +7,7 @@ import java.util.logging.Level;
 
 public class DBUtil {
 	private static Connection conn;
-	
-	/**
-	 * No instances will be available
-	 */
+
 	private DBUtil() {}
 	
 	public static Connection openConnection() throws SQLException {

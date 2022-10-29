@@ -5,9 +5,6 @@ import java.util.List;
 
 import com.test.medifastservices.model.Patient;
 
-/**
- * @author Ath. Androutsos
- */
 public interface IPatientDAO {
 	void insert(Patient patient) throws SQLException;
 	void delete(Patient patient) throws SQLException;

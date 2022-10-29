@@ -11,7 +11,7 @@
 
     <h1>Νέα Στοιχεία Καθηγητή</h1>
     <p>${patient.fname}</p>
-    <p>${patient.sname}</p>
+    <p>${patient.lname}</p>
     <a href="${pageContext.request.contextPath}/jsps/patientsmenu.jsp">Επιστροφή</a>
 
 </body>

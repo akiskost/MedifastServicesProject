@@ -14,7 +14,7 @@
         <form method="GET" action="${pageContext.request.contextPath}/update">
             <input type="text" name="id" value="${param.id}" readonly><br>
             <input type="text" name="fname" value="${param.fname}"><br>
-            <input type="text" name="sname" value="${param.sname}"><br><br>
+            <input type="text" name=lname" value="${param.lname}"><br><br>
             <button type="submit">Update patient</button>
         </form>
     </div>

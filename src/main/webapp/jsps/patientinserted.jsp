@@ -11,7 +11,7 @@
 	<h1>patient inserted successfully</h1>
 	<div>
 		<p>${insertedpatient.fname}</p>
-		<p>${insertedpatient.sname}</p>
+		<p>${insertedpatient.lname}</p>
 	</div>
 	
 	<a href="${pageContext.request.contextPath}/jsps/patientsmenu.jsp">Επιστροφή στο Μενού</a>

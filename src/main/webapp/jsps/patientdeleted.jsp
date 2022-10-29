@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <p>patient: ${patient.id} ${patient.fname} ${patient.sname}</p>
+    <p>patient: ${patient.id} ${patient.fname} ${patient.lname}</p>
     <a href="${pageContext.request.contextPath}/jsps/patientsmenu.jsp">Επιστροφή</a>
 
 </body>
