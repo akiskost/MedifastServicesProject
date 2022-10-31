@@ -35,7 +35,7 @@ public class DeletePatientController extends HttpServlet {
 		
 		// Construct DTO
 		PatientDTO patientDTO = new PatientDTO();
-		patientDTO.setId(id);
+		patientDTO.setPid(id);
 		patientDTO.setFname(firstname);
 		patientDTO.setLname(lastname);
 		

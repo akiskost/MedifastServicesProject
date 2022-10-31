@@ -7,6 +7,6 @@ public class PatientNotFoundException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	public PatientNotFoundException(Patient patient) {
-		super("patient with id = " + patient.getId() + " was not found");
+		super("patient with id = " + patient.getPid() + " was not found");
 	}
 }

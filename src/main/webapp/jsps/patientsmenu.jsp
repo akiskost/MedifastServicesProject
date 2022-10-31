@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>patients Search</title>
+    <title>Patients Search</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/patientsmenu.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
 	        </div>
 	        <div class="bot-gap">
 	            <form method="GET" action="${pageContext.request.contextPath}/search">
-	                <input name="lastname" type="text" class="search rounded" placeholder="Insert patient's lastname" autofocus/>
+	                <input name="lname" type="text" class="search rounded" placeholder="Insert patient's lastname" autofocus/>
 	                <br><br>
 	                <button class="search-btn rounded color-btn" type="submit">Search</button>
 	            </form>
@@ -31,16 +31,13 @@
 	        </div>
 	        <div class="bot-gap">
 	            <form method="GET" action="${pageContext.request.contextPath}/insert">
-	                <input name="lastname" type="text" class="insert rounded" placeholder="Last name" autofocus/><br>
-	                <input name="firstname" type="text" class="insert rounded" placeholder="First name"/>
-					<input name="address" type="text" class="insert rounded" placeholder="Address"/>
-					<input name="phonenumber" type="text" class="insert rounded" placeholder="Phone Number"/>
-					<input name="amka" type="text" class="insert rounded" placeholder="AMKA"/>
-					<input name="idno" type="text" class="insert rounded" placeholder="ID Number"/>
-
-
-
-
+					<input name="pid" type="text" class="insert rounded" placeholder="Patient ID"/><br>
+					<input name="firstname" type="text" class="insert rounded" placeholder="Last name" autofocus required/><br>
+	                <input name="lastname" type="text" class="insert rounded" placeholder="First name" required/>
+					<input name="address" type="text" class="insert rounded" placeholder="Address" required/>
+					<input name="phonenumber" type="text" class="insert rounded" placeholder="Phone Number"required />
+					<input name="amka" type="text" class="insert rounded" placeholder="AMKA"required />
+					<input name="idno" type="text" class="insert rounded" placeholder="ID Number"required />
 					<br><br>
 	                <button class="search-btn rounded color-btn" type="submit">Insert</button>
 	            </form>

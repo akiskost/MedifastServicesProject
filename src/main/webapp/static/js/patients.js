@@ -37,7 +37,7 @@ function handleResults(response) {
 	
 	    for (let patient of patientsList) {
 	        output += "<tr><td>"
-	        + patient.id
+	        + patient.pid
 	        + "</td><td>"
 	        + patient.fname
 	        + "</td><td>"

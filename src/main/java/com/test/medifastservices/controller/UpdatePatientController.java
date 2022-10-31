@@ -31,7 +31,7 @@ public class UpdatePatientController extends HttpServlet {
 		String lastname = request.getParameter("lname");
 		
 		PatientDTO oldPatientDTO = new PatientDTO();
-		oldPatientDTO.setId(id);
+		oldPatientDTO.setPid(id);
 		
 		PatientDTO newPatientDTO = new PatientDTO();
 		newPatientDTO.setFname(firstname);

@@ -20,10 +20,11 @@ public class PatientServiceImpl implements IPatientService {
 		
 		// Extract dto 
 		Patient patient = new Patient();
+		patient.setPid(patientDTO.getPid());
 		patient.setLname(patientDTO.getLname());
 		patient.setFname(patientDTO.getFname());
 		patient.setAddress(patientDTO.getAddress());
-		patient.setPhoneNumber(patientDTO.getPhoneNumber());
+		patient.setPhonenumber(patientDTO.getPhonenumber());
 		patient.setAmka(patientDTO.getAmka());
 		patient.setIdno(patientDTO.getIdno());
 		
@@ -39,7 +40,7 @@ public class PatientServiceImpl implements IPatientService {
 	public void deletepatient(PatientDTO patientDTO)
 			throws SQLException {  // patientNotFoundException
 		Patient patientToDelete = new Patient();
-		patientToDelete.setId(patientDTO.getId());
+		patientToDelete.setPid(patientDTO.getPid());
 		//patientToDelete.setSname(patientDTO.getSname());
 		
 		try {
@@ -62,7 +63,7 @@ public class PatientServiceImpl implements IPatientService {
 		// extract DTO
 		Patient patientToUpdate = new Patient();
 		//patientToUpdate.setSname(oldpatientDTO.getSname());
-		patientToUpdate.setId(oldPatientDTO.getId());
+		patientToUpdate.setPid(oldPatientDTO.getPid());
 		
 		Patient newPatient = new Patient();
 		newPatient.setLname(newPatientDTO.getLname());

@@ -5,8 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Patients</title>
+    <meta charset="UTF-8">
+    <title>Patients List</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/patientsmenu.css">
 </head>
 <body>
 
@@ -18,7 +19,7 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Address</th>
-                <th>Phone number</th>
+                <th>Phone Number</th>
                 <th>AMKA</th>
                 <th>ID Number</th>
                 <th>Delete</th>
@@ -28,16 +29,16 @@
 
             <c:forEach var = "patient" items="${patients}">
                 <tr>
-                    <td>${patient.id}</td>
+                    <td>${patient.pid}</td>
                     <td>${patient.fname}</td>
                     <td>${patient.lname}</td>
                     <td>${patient.address}</td>
                     <td>${patient.phonenumber}</td>
                     <td>${patient.amka}</td>
                     <td>${patient.idno}</td>
-                    <td><a href="${pageContext.request.contextPath}/delete?id=${patient.id}&fname=${patient.fname}&lname=${patient.lname}">Delete</a></td>
-                    <td><a href="${pageContext.request.contextPath}/jsps/patientupdate.jsp?id=${patient.id}&fname=${patient.fname}&lname=${patient.lname}">Update</a></td>
-                    <td><a href="${pageContext.request.contextPath}/jsps/patientsprofile.jsp?id=${patient.id}&fname=${patient.fname}&lname=${patient.lname}">View</a></td>
+                    <td><a href="${pageContext.request.contextPath}/delete?id=${patient.pid}&fname=${patient.fname}&lname=${patient.lname}">Delete</a></td>
+                    <td><a href="${pageContext.request.contextPath}/jsps/patientupdate.jsp?id=${patient.pid}&fname=${patient.fname}&lname=${patient.lname}">Update</a></td>
+                    <td><a href="${pageContext.request.contextPath}/jsps/patientsprofile.jsp?id=${patient.pid}&fname=${patient.fname}&lname=${patient.lname}">View</a></td>
                 </tr>
             </c:forEach>
 

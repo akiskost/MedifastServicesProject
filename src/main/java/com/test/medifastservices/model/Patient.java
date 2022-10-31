@@ -1,34 +1,34 @@
 package com.test.medifastservices.model;
 
 public class Patient {
-	private int id;
+	private int pid;
 	private String fname;
 	private String lname;
 	private String address;
-	private Integer phoneNumber;
-	private Integer amka;
+	private int phonenumber;
+	private int amka;
 	private String idno;
 	
 	public Patient() {}
 
-	public Patient(int id, String fname, String lname, String address, int phoneNumber, int amka, String idno) {
+	public Patient(int pid, String fname, String lname, String address, int phonenumber, int amka, String idno) {
 		
-		this.id = id;
+		this.pid = pid;
 		this.fname = fname;
 		this.lname = lname;
 		this.address = address;
-		this.phoneNumber = phoneNumber;
+		this.phonenumber = phonenumber;
 		this.amka = amka;
 		this.idno = idno;
 
 	}
 
-	public int getId() {
-		return id;
+	public int getPid() {
+		return pid;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setPid(int pid) {
+		this.pid = pid;
 	}
 
 	public String getFname() {
@@ -55,12 +55,12 @@ public class Patient {
 		return address;
 	}
 
-	public Integer getPhoneNumber() {
-		return phoneNumber;
+	public Integer getPhonenumber() {
+		return phonenumber;
 	}
 
-	public void setPhoneNumber(Integer phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setPhonenumber(Integer phonenumber) {
+		this.phonenumber = phonenumber;
 	}
 
 	public Integer getAmka() {

@@ -30,6 +30,7 @@ public class InsertPatientController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		// Get the data
+		String pid = request.getParameter("pid");
 		String firstname = request.getParameter("firstname").trim();
 		String lastname = request.getParameter("lastname").trim();
 		String address = request.getParameter("address").trim();
@@ -39,10 +40,11 @@ public class InsertPatientController extends HttpServlet {
 		
 		// Construct DTO
 		PatientDTO patientDTO = new PatientDTO();
+		patientDTO.setPid(Integer.parseInt(pid));
 		patientDTO.setFname(firstname);
 		patientDTO.setLname(lastname);
 		patientDTO.setAddress(address);
-		patientDTO.setPhoneNumber(Integer.valueOf(phonenumber));
+		patientDTO.setPhonenumber(Integer.valueOf(phonenumber));
 		patientDTO.setAmka(Integer.valueOf(amka));
 		patientDTO.setIdno(idno);
 
