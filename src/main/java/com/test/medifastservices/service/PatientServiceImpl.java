@@ -61,14 +61,20 @@ public class PatientServiceImpl implements IPatientService {
 			throws SQLException {   // patientNotFoundException
 		
 		// extract DTO
+
 		Patient patientToUpdate = new Patient();
-		//patientToUpdate.setSname(oldpatientDTO.getSname());
+
 		patientToUpdate.setPid(oldPatientDTO.getPid());
-		
+
 		Patient newPatient = new Patient();
-		newPatient.setLname(newPatientDTO.getLname());
+		newPatient.setPid(patientToUpdate.getPid());
 		newPatient.setFname(newPatientDTO.getFname());
-		
+		newPatient.setLname(newPatientDTO.getLname());
+		newPatient.setAddress(newPatientDTO.getAddress());
+		newPatient.setPhonenumber(newPatientDTO.getPhonenumber());
+		newPatient.setAmka(newPatientDTO.getAmka());
+		newPatient.setIdno(newPatientDTO.getIdno());
+
 		
 		// Forward to DAO
 		try {

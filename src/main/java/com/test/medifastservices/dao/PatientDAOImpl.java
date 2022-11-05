@@ -15,14 +15,16 @@ public class PatientDAOImpl implements IPatientDAO {
 
 	@Override
 	public void insert(Patient patient) throws SQLException {
+
+		//PREPARED STATEMENTS
 		PreparedStatement pst = null;
 		PreparedStatement pos;
+//		PreparedStatement npid = null;
 
 		try {
 			
 			String sql = "INSERT INTO patients (PID, FNAME, LNAME, ADDRESS, PHONENUMBER, AMKA, ID_NO) VALUES (?, ?, ?, ?, ?, ?, ?)";
 			pst = openConnection().prepareStatement(sql);
-
 
 			String tablepos = "SELECT * FROM patients";
 			pos = openConnection().prepareStatement(tablepos);
@@ -30,9 +32,16 @@ public class PatientDAOImpl implements IPatientDAO {
 			ResultSet rs = pos.executeQuery(tablepos);
 			int curRowNo = rs.getRow();
 
+//			CODE TO GET AUTO INCREMENT NUMBER TO DISPLAY IN INSERT FORM,  TBC
+//			String nextPID = "SELECT AUTO_INCREMENT FROM patients";
+//			npid = openConnection().prepareStatement(nextPID);
+//			ResultSet rs2 = pos.executeQuery(nextPID);
+//			int nexpid = rs2.getInt("AUTO_INCREMENT");
+//			System.out.println(nexpid);
+
 			System.out.println(curRowNo);
 
-			pst.setInt(1,curRowNo);
+			pst.setInt(1,0);
 			pst.setString(2,  patient.getFname());
 			pst.setString(3,  patient.getLname());
 			pst.setString(4,  patient.getAddress());
@@ -57,11 +66,8 @@ public class PatientDAOImpl implements IPatientDAO {
 		PreparedStatement pst = null;
 		
 		try {
-			
-
-			String sql = "DELETE FROM patients WHERE PID =  ?";
+			String sql = "DELETE FROM patients WHERE PID = " + patient.getPid();
 			pst = openConnection().prepareStatement(sql);
-			pst.setInt(1,  patient.getPid());
 			pst.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -79,10 +85,16 @@ public class PatientDAOImpl implements IPatientDAO {
 		
 		try {
 			
-			String sql = "UPDATE patients SET FNAME = '" + newPatient.getFname() + "'," +
-					" " + "LNAME = '"  + newPatient.getLname() +
+			String sql = "UPDATE patients SET FNAME = '" + newPatient.getFname() +
+					"'," + " " + "LNAME = '"  + newPatient.getLname() +
+					"'," + " " + "ADDRESS = '"  + newPatient.getAddress() +
+					"'," + " " + "PHONENUMBER = '"  + newPatient.getPhonenumber() +
+					"'," + " " + "AMKA = '"  + newPatient.getAmka() +
+					"'," + " " + "ID_NO = '"  + newPatient.getIdno() +
 					"' WHERE PID = " + oldPatient.getPid();
+
 			pst = openConnection().prepareStatement(sql);
+
 			pst.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -128,8 +140,7 @@ public class PatientDAOImpl implements IPatientDAO {
 		} finally {
 			if (pst != null) pst.close();
 			if (openConnection() != null) closeConnection();
-		}		
-		
+		}
 	}
 
 	@Override

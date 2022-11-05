@@ -29,7 +29,7 @@ public class SearchPatientController extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		
-		String lastname = request.getParameter("lname");
+		String lastname = "";
 		
 		// Construct DTO
 		PatientDTO patientDTO = new PatientDTO();
@@ -42,7 +42,7 @@ public class SearchPatientController extends HttpServlet {
 				request.getRequestDispatcher("/jsps/patients.jsp").forward(request, response);
 			} else {
 				request.setAttribute("patientsNotFound", true);
-				request.getRequestDispatcher("/jsps/patientsmenu.jsp").forward(request, response);
+				request.getRequestDispatcher("/jsps/patients.jsp").forward(request, response);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

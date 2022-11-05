@@ -21,21 +21,35 @@ public class UpdatePatientController extends HttpServlet {
 	
 	IPatientDAO patientDAO = new PatientDAOImpl();
 	IPatientService patientServ = new PatientServiceImpl(patientDAO);
-	
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		int id = Integer.parseInt(request.getParameter("id"));
-		String firstname = request.getParameter("fname");
-		String lastname = request.getParameter("lname");
-		
+
+		response.setContentType("text/html; charset=UTF-8");
+
+		// Display the data
+		int pid = Integer.parseInt(request.getParameter("pid"));
+		String firstname = request.getParameter("firstname");
+		String lastname = request.getParameter("lastname");
+		String address = request.getParameter("address");
+		int phonenumber = Integer.parseInt(request.getParameter("phonenumber"));
+		int amka = Integer.parseInt(request.getParameter("amka"));
+		String idno = request.getParameter("idno");
+
+		// Construct DTO
 		PatientDTO oldPatientDTO = new PatientDTO();
-		oldPatientDTO.setPid(id);
+		oldPatientDTO.setPid(pid);
 		
 		PatientDTO newPatientDTO = new PatientDTO();
+
+		newPatientDTO.setPid(oldPatientDTO.getPid());
 		newPatientDTO.setFname(firstname);
 		newPatientDTO.setLname(lastname);
+		newPatientDTO.setAddress(address);
+		newPatientDTO.setPhonenumber(phonenumber);
+		newPatientDTO.setAmka(amka);
+		newPatientDTO.setIdno(idno);
 		
 		
 		try {

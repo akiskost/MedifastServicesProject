@@ -22,22 +22,30 @@ public class DeletePatientController extends HttpServlet {
 	IPatientDAO patientDAO = new PatientDAOImpl();
 	IPatientService patientServ = new PatientServiceImpl(patientDAO);
        
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		response.setContentType("text/html; charset=UTF-8");
-		
-		// Get the data
-		int id = Integer.parseInt(request.getParameter("id").trim());
-		String firstname = request.getParameter("fname");
-		String lastname = request.getParameter("lname");
 
-		
+		// Display the data
+		long pid = Long.parseLong(request.getParameter("pid"));
+		String firstname = request.getParameter("firstname");
+		String lastname = request.getParameter("lastname");
+		String address = request.getParameter("address");
+		int phonenumber = Integer.parseInt(request.getParameter("phonenumber"));
+		int amka = Integer.parseInt(request.getParameter("amka"));
+		String idno = request.getParameter("idno");
+
 		// Construct DTO
 		PatientDTO patientDTO = new PatientDTO();
-		patientDTO.setPid(id);
+
+		patientDTO.setPid(Math.toIntExact(pid));
 		patientDTO.setFname(firstname);
 		patientDTO.setLname(lastname);
+		patientDTO.setAddress(address);
+		patientDTO.setPhonenumber(phonenumber);
+		patientDTO.setAmka(amka);
+		patientDTO.setIdno(idno);
 		
 		// Call the service
 		try {
@@ -46,7 +54,7 @@ public class DeletePatientController extends HttpServlet {
 			request.getRequestDispatcher("/jsps/patientdeleted.jsp").forward(request, response);
 		} catch (SQLException e) {
 			request.setAttribute("deleteAPIError", true);
-			request.getRequestDispatcher("/jsps/patients.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsps/home.jsp").forward(request, response);
 		}	
 	}
 }

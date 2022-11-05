@@ -1,38 +1,68 @@
 package com.test.medifastservices.controller;
 
+import com.test.medifastservices.dao.UserDAOImpl;
+import com.test.medifastservices.dto.UserDTO;
+
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.test.medifastservices.dao.IUserDAO;
+import com.test.medifastservices.dao.UserDAOImpl;
+import com.test.medifastservices.dto.UserDTO;
+import com.test.medifastservices.model.User;
+import com.test.medifastservices.service.IPatientService;
+import com.test.medifastservices.service.IUserService;
+import com.test.medifastservices.service.PatientServiceImpl;
+import com.test.medifastservices.service.UserServiceImpl;
+
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+
+	IUserDAO userDAO = new UserDAOImpl();
+	IUserService userService = new UserServiceImpl(userDAO);
+
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
-		
+
 		// get data
-		String email = request.getParameter("eMail");
+		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		
-		// construct DTO
-		
-		
-		// call service
-		
-		if ( (email.equals("akis@gmail.com")) && (password.equals("123")) ) {
-			// return response
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
-		} else {
-			// return response
-			request.setAttribute("error", true);
-			request.getRequestDispatcher("/jsps/login.jsp").forward(request, response);
+
+
+		// Construct DTO
+		UserDTO userDTO = new UserDTO();
+		userDTO.setEmail(email);
+		userDTO.setPassword(password);
+
+		try {
+			userDTO = userDAO.checkLogin(email, password);
+			userService.checkedLogin(userDTO);
+
+			if (userDTO != null) {
+				HttpSession session = request.getSession();
+				session.setAttribute("user", userDTO);
+				request.getRequestDispatcher("/jsps/home.jsp").forward(request, response);
+			} else {
+				String message = "Invalid email/password";
+				request.setAttribute("message", message);
+			}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			request.setAttribute("sqlError", true);
 		}
-		
-		
 	}
 }

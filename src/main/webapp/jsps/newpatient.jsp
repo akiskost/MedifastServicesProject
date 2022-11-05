@@ -7,7 +7,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Medifast - Update Patient</title>
+    <title>Medifast - Add Patient</title>
     <link rel="icon" href="${pageContext.request.contextPath}/static/img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
@@ -70,39 +70,40 @@
 <!-- Header part end-->
 
 <!-- main-->
-<section class="our_depertment section_padding single_pepertment_page">
+<section class="about_us padding_top">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-12">
                 <div class="depertment_content">
+
                     <div class="row justify-content-center text-left">
                         <div class="col-xl-4">
-                            <h3>Update Patient Information</h3>
-                            <br>
-                            <form method="GET" action="${pageContext.request.contextPath}/update">
+                            <h2>Add Patient</h2>
+                            <form method="POST" action="${pageContext.request.contextPath}/insert">
+
                                 <div class="form-group">
-                                    <input name="pid" type="text" class="form-control" id="forminp1" value="${param.pid}" readonly >
+                                    <input name="pid" type="text" class="form-control" id="forminp1" placeholder="Patient ID">
                                 </div>
                                 <div class="form-group">
-                                    <input name="firstname" type="text" class="form-control" id="forminp2" value="${param.firstname}">
+                                    <input name="firstname" type="text" class="form-control" id="forminp2" placeholder="First name" autofocus required>
                                 </div>
                                 <div class="form-group">
-                                    <input name="lastname" type="text" class="form-control" id="forminp3" value="${param.lastname}">
+                                    <input name="lastname" type="text" class="form-control" id="forminp3" placeholder="Last name" required>
                                 </div>
                                 <div class="form-group">
-                                    <input name="address" type="text" class="form-control" id="forminp4" value="${param.address}">
+                                    <input name="address" type="text" class="form-control" id="forminp4" placeholder="Address" required>
                                 </div>
                                 <div class="form-group">
-                                    <input name="phonenumber" type="text" class="form-control" id="forminp5" value="${param.phonenumber}">
+                                    <input name="phonenumber" type="text" class="form-control" id="forminp5" placeholder="Phone number" required>
                                 </div>
                                 <div class="form-group">
-                                    <input name="amka" type="text" class="form-control" id="forminp6" value="${param.amka}">
+                                    <input name="amka" type="text" class="form-control" id="forminp6" placeholder="AMKA" required>
                                 </div>
                                 <div class="form-group">
-                                    <input name="idno" type="text" class="form-control" id="forminp7" value="${param.idno}">
+                                    <input name="idno" type="text" class="form-control" id="forminp7" placeholder="ID number" required>
                                 </div>
 
-                                <button type="submit" id="submit-button" class="btn btn-primary" > Update Information </button>
+                                <button type="submit" id="submit-button" class="btn btn-primary" > Add Patient </button>
 
 
 
@@ -118,10 +119,10 @@
 <!-- main-->
 
 <!-- footer part start-->
-<footer class="footer-area">
-    <div class="footer section_padding">
+<footer class="footer-area fixed-bottom">
+    <div class="footer section-top-border ">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center text-center">
                 <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">
                     <a href="#" class="footer_logo"> <img src="${pageContext.request.contextPath}/static/img/logo.png" alt="#"> </a>
                     <div class="social_logo justify-content-center">
@@ -131,8 +132,6 @@
                         <a href="#"><i class="ti-skype"></i></a>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>

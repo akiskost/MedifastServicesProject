@@ -13,12 +13,12 @@
     <div class="center">
         
         <div class="search-wrapper">
-	        <div class="bot-gap">
-	            <span class="title">Patients Search</span>
-	        </div>
+			<div class="bot-gap">
+				<span class="title">Patients Search</span>
+			</div>
 	        <div class="bot-gap">
 	            <form method="GET" action="${pageContext.request.contextPath}/search">
-	                <input name="lname" type="text" class="search rounded" placeholder="Insert patient's lastname" autofocus/>
+	                <input name=" " type="text" class="search rounded" placeholder="Insert patient's lastname" autofocus/>
 	                <br><br>
 	                <button class="search-btn rounded color-btn" type="submit">Search</button>
 	            </form>
