@@ -9,7 +9,7 @@ public class Appointment {
     private String exam;
     private String result;
 
-    public Appointment(){};
+    public Appointment() {}
 
     public Appointment(int apid, String fname, String lname, String date, String exam, String result) {
         this.apid = apid;

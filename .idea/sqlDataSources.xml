@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="b266faaa-1d0a-4901-bf51-1ed5a9c1a512" name="@cluster0.ktad2.mongodb.net Mapping">
+      <data-sources db="b4cfeea3-246d-4b82-b91b-c0bc93b878f4" />
+    </mapping>
+  </component>
+</project>

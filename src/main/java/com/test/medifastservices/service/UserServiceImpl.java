@@ -15,15 +15,14 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User checkedLogin(UserDTO userDTO) throws SQLException {
+    public void checkedLogin(UserDTO userDTO) throws SQLException {
 
         // Extract dto
         User user = new User();
-        user.setUid(userDTO.getUid());
-        user.setEmail(user.getEmail());
-        user.setPassword(user.getPassword());
-        user.setUserFirstName(user.getUserFirstName());
-        user.setUserLastName(user.getUserLastName());
+        user.setEmail(userDTO.getEmail());
+        user.setPassword(userDTO.getPassword());
+        user.setUserFirstName(userDTO.getUserFirstName());
+        user.setUserLastName(userDTO.getUserLastName());
 
 
         try {
@@ -32,7 +31,7 @@ public class UserServiceImpl implements IUserService {
             throw e;
         }
 
-        return user;
+
     }
 
 }

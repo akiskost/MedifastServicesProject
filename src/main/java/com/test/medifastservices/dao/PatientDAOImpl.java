@@ -41,7 +41,7 @@ public class PatientDAOImpl implements IPatientDAO {
 
 			System.out.println(curRowNo);
 
-			pst.setInt(1,0);
+			pst.setInt(1,curRowNo);
 			pst.setString(2,  patient.getFname());
 			pst.setString(3,  patient.getLname());
 			pst.setString(4,  patient.getAddress());
@@ -119,7 +119,9 @@ public class PatientDAOImpl implements IPatientDAO {
 			rs =  pst.executeQuery();
 				
 			while (rs.next()) {
+
 				Patient patient = new Patient();
+
 				patient.setPid(rs.getInt("PID"));
 				patient.setFname(rs.getString("FNAME"));
 				patient.setLname(rs.getString("LNAME"));

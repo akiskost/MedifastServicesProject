@@ -27,11 +27,6 @@ import com.test.medifastservices.service.UserServiceImpl;
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	IUserDAO userDAO = new UserDAOImpl();
-	IUserService userService = new UserServiceImpl(userDAO);
-
-
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
@@ -40,19 +35,22 @@ public class LoginController extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
-
-		// Construct DTO
-		UserDTO userDTO = new UserDTO();
-		userDTO.setEmail(email);
-		userDTO.setPassword(password);
+//		// Construct DTO
+//		UserDTO userDTO = new UserDTO();
+//		userDTO.setEmail(email);
+//		userDTO.setPassword(password);
+		IUserDAO userDAO = new UserDAOImpl();
+		//IUserService userService = new UserServiceImpl(userDAO);
 
 		try {
-			userDTO = userDAO.checkLogin(email, password);
-			userService.checkedLogin(userDTO);
+			User user = userDAO.checkLogin(email,password);
+			//userService.checkedLogin(userDTO);
 
-			if (userDTO != null) {
+			System.out.println("LOGIN CONTROLLER USER");
+			System.out.println(user);
+			if (user != null) {
 				HttpSession session = request.getSession();
-				session.setAttribute("user", userDTO);
+				session.setAttribute("user", user);
 				request.getRequestDispatcher("/jsps/home.jsp").forward(request, response);
 			} else {
 				String message = "Invalid email/password";

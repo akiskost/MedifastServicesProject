@@ -6,6 +6,6 @@ import com.test.medifastservices.model.User;
 import java.sql.SQLException;
 
 public interface IUserService {
-    User checkedLogin (UserDTO userDTO) throws SQLException;
+    void checkedLogin (UserDTO userDTO) throws SQLException;
 }
 

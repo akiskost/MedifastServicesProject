@@ -55,7 +55,7 @@
                 <a class="nav-link" href="${pageContext.request.contextPath}/jsps/newpatient.jsp">Add New Patient</a>
               </li>
               <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/jsps/newappointment.jsp">New Appointment</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/jsps/newappointment.jsp">New Appointment</a>
               </li>
             </ul>
           </div>

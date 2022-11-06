@@ -33,7 +33,7 @@ public class PatientRestController extends HttpServlet {
 		
 		String lastname = request.getParameter("lastname").trim();
 		
-		List<Patient> patients = new ArrayList<>();
+		List<Patient> patients;
 		String jsonString;
 		Gson gson = new Gson();
 		
