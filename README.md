@@ -58,5 +58,7 @@ Download: https://aws.amazon.com/corretto/
 ---
 
 ### Credits
-AUEB Coding Factory program https://codingfactory.aueb.gr/ \
+AUEB Coding Factory program: https://codingfactory.aueb.gr/ \
 and professor Athanasios Androutsos for providing base architecture
+
+Logo and image creation by Dalle-2: https://openai.com/dall-e-2/ 
