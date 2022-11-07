@@ -34,13 +34,19 @@
 </head>
 
 <body>
+
+<c:choose>
+<c:when test="${not empty user}">
+
+
 <!--::header part start::-->
-<header class="main_menu">
+<header class="main_menu home_menu">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="${pageContext.request.contextPath}/jsps/home.jsp"> <img src="${pageContext.request.contextPath}/static/img/logo.png" alt="logo"> </a>
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/jsps/home.jsp">
+                        <img src="${pageContext.request.contextPath}/static/img/logo.png" alt="logo"> </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -53,15 +59,34 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="${pageContext.request.contextPath}/jsps/home.jsp">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/search">Patients Search</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Patients
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/search">Search for Patients</a>
+                                    <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/jsps/newpatient.jsp">Add New Patient</a>
+                                </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/jsps/newpatient.jsp">Add New Patient</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Appointments
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/appointmentsearch">Search Appointments</a>
+                                    <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/newappointment">New Appointment</a>
+
+                                </div>
                             </li>
+
+
+
+
                         </ul>
                     </div>
-                    <a class="btn_2 d-none d-lg-block" href="${pageContext.request.contextPath}/index.jsp">Logout</a>
+                    <a class="btn_2 d-none d-lg-block" href="${pageContext.request.contextPath}/logout">Logout</a>
                 </nav>
             </div>
         </div>
@@ -70,7 +95,7 @@
 <!-- Header part end-->
 
 <!-- main-->
-<section class="our_depertment section_padding single_pepertment_page">
+<section class="about_us_text padding_top ">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-12">
@@ -81,7 +106,7 @@
                         <div class="col-xl-6">
                             <h3>Patient Information</h3>
                             <br>
-                            <form method="GET" action="${pageContext.request.contextPath}/view">
+                            <form>
                                 <div class="form-group">
                                     <label for="forminp1">Patient ID</label>
                                     <input name="pid" type="text" class="form-control" id="forminp1" value="${param.pid}" readonly >
@@ -117,34 +142,34 @@
                                     </div>
                                 </div>
 
-<%--                                button to redirect to edit patient--%>
-<%--                                <a href="${pageContext.request.contextPath}/jsps/patientupdate.jsp?pid&firstname=${patient.fname}&lastname=${patient.lname}&address=${patient.address}&phonenumber=${patient.phonenumber}&amka=${patient.amka}&idno=${patient.idno}" class="btn btn-primary" aria-pressed="true">Update Patient Information</a>--%>
-
-
-
+                                <a class="btn btn-primary" href="${pageContext.request.contextPath}/jsps/patientupdate.jsp?pid=${param.pid}&firstname=${param.firstname}&lastname=${param.lastname}&address=${param.address}&phonenumber=${param.phonenumber}&amka=${param.amka}&idno=${param.idno}" role="button"> Update Patient Information </a>
                             </form>
                         </div>
                         <%--Patient Exam History Column--%>
                         <div class="col-xl-6">
                             <h3>Patient Exam History</h3>
                             <br>
-<%--
-                            <form method="GET" action="${pageContext.request.contextPath}/view">
---%>
-                            <div class="list-group">
-                                <a href="#" class="list-group-item list-group-item-action active">
-                                    Cras justo odio
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                                <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                                <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                                <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
-                            </div>
-                                <%--                                button to redirect to edit patient--%>
-                                <%--                                <a href="${pageContext.request.contextPath}/jsps/patientupdate.jsp?pid&firstname=${patient.fname}&lastname=${patient.lname}&address=${patient.address}&phonenumber=${patient.phonenumber}&amka=${patient.amka}&idno=${patient.idno}" class="btn btn-primary" aria-pressed="true">Update Patient Information</a>--%>
+                            <table method="GET" id="app_table" action="${pageContext.request.contextPath}/view" class="table table-striped table-bordered"  style="width:100%">
+                                <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Exam</th>
+                                    <th>Result</th>
+                                    <th>Reschedule</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var = "appointment" items="${appointments}">
+                                    <tr>
+                                        <td>${appointment.date}</td>
+                                        <td>${appointment.exam}</td>
+                                        <td>${appointment.result}</td>
+                                        <td><a id="${appointment.apid}" href="${pageContext.request.contextPath}/jsps/appointmentreschedule.jsp?pid=${appointment.pid}&apid=${appointment.apid}&firstname=${appointment.fname}&lastname=${appointment.lname}&date=${appointment.date}&exam=${appointment.exam}&result=${appointment.result}">Reschedule</a></td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
 
-
-
+                            </table>
                             </form>
                         </div>
                     </div>
@@ -155,6 +180,46 @@
     </div>
 </section>
 <!-- main-->
+
+</c:when>
+    <c:otherwise>
+        <section class="our_depertment padding_top padding_bottom">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-xl-4">
+                        <form method="POST" action="${pageContext.request.contextPath}/login" class="form-signin">
+                            <img class="mb-4" src="${pageContext.request.contextPath}/static/img/logolarge.png" alt="" width="72" height="72">
+                            <h1 class="h3 mb-4 font-weight-bold">Please sign in</h1>
+                            <div class="form-group">
+                                <input type="text" name="email" class="form-control mb-3" placeholder="Email address" required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+                            </div>
+                            <br>${message}
+                            <div class="checkbox mb-2">
+                                <label>
+                                    <input type="checkbox" value="remember-me"> Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
+                        </form>
+                        <br>
+                        <div class="col-md text-center">
+                            <a href="#">Lost your password?</a>
+                        </div>
+                        <br>
+                        <div class="col-md text-center">
+                            <p>Don't have an account? <a href="#">Sign up here!</a></p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </c:otherwise>
+</c:choose>
 
 <!-- footer part start-->
 <footer class="footer-area fixed-bottom">
@@ -225,25 +290,21 @@
 <script src="${pageContext.request.contextPath}/static/js/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/dataTables.bootstrap5.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/bootstrap-table.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#app_table').DataTable()
+    });
+</script>
 
-<%--<script>--%>
-<%--    $(function() {--%>
-<%--        $("#submit").click(function() {--%>
-<%--            if($("#firstname").val() !="" && $("#lastname").val() !="") {--%>
-<%--                $('#exampleModal').modal('show');--%>
-<%--                // $(this).closest("form").submit();--%>
-<%--            }--%>
-<%--        });--%>
-<%--    });--%>
-<%--</script>--%>
+<%-- //bootstrap method to get data on page load--%>
 
-<%--<script>--%>
-<%--    $(document).on('click', '#submit-button', function(e){--%>
-<%--        if($("#firstname").val() != null){--%>
-<%--            $("#exampleModal").show();--%>
-<%--        }--%>
-<%--    });--%>
-<%--</script>--%>
+<script>
+    var data = ${appointments};
+    data_json=JSON.parse(data);
+    $('#appointments').bootstrapTable({
+        data: data_json
+    });
+</script>
 </body>
 
 </html>

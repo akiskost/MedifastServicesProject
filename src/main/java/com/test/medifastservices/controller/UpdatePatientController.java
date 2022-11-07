@@ -33,8 +33,8 @@ public class UpdatePatientController extends HttpServlet {
 		String firstname = request.getParameter("firstname");
 		String lastname = request.getParameter("lastname");
 		String address = request.getParameter("address");
-		int phonenumber = Integer.parseInt(request.getParameter("phonenumber"));
-		int amka = Integer.parseInt(request.getParameter("amka"));
+		Long phonenumber = Long.parseLong(request.getParameter("phonenumber"));
+		Long amka = Long.parseLong(request.getParameter("amka"));
 		String idno = request.getParameter("idno");
 
 		// Construct DTO
@@ -42,7 +42,6 @@ public class UpdatePatientController extends HttpServlet {
 		oldPatientDTO.setPid(pid);
 		
 		PatientDTO newPatientDTO = new PatientDTO();
-
 		newPatientDTO.setPid(oldPatientDTO.getPid());
 		newPatientDTO.setFname(firstname);
 		newPatientDTO.setLname(lastname);

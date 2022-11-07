@@ -47,11 +47,12 @@
                         <img class="mb-4" src="${pageContext.request.contextPath}/static/img/logolarge.png" alt="" width="72" height="72">
                         <h1 class="h3 mb-4 font-weight-bold">Please sign in</h1>
                         <div class="form-group">
-                            <input type="email" name="email" class="form-control mb-3" placeholder="Email address" required autofocus>
+                            <input type="text" name="email" class="form-control mb-3" placeholder="Email address" required autofocus>
                         </div>
                         <div class="form-group">
                             <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
                         </div>
+                        <br>${message}
                         <div class="checkbox mb-2">
                             <label>
                                 <input type="checkbox" value="remember-me"> Remember me

@@ -22,7 +22,7 @@ public class PatientDAOImpl implements IPatientDAO {
 //		PreparedStatement npid = null;
 
 		try {
-			
+
 			String sql = "INSERT INTO patients (PID, FNAME, LNAME, ADDRESS, PHONENUMBER, AMKA, ID_NO) VALUES (?, ?, ?, ?, ?, ?, ?)";
 			pst = openConnection().prepareStatement(sql);
 
@@ -32,33 +32,24 @@ public class PatientDAOImpl implements IPatientDAO {
 			ResultSet rs = pos.executeQuery(tablepos);
 			int curRowNo = rs.getRow();
 
-//			CODE TO GET AUTO INCREMENT NUMBER TO DISPLAY IN INSERT FORM,  TBC
-//			String nextPID = "SELECT AUTO_INCREMENT FROM patients";
-//			npid = openConnection().prepareStatement(nextPID);
-//			ResultSet rs2 = pos.executeQuery(nextPID);
-//			int nexpid = rs2.getInt("AUTO_INCREMENT");
-//			System.out.println(nexpid);
-
-			System.out.println(curRowNo);
-
-			pst.setInt(1,curRowNo);
+			pst.setLong(1,curRowNo);
 			pst.setString(2,  patient.getFname());
 			pst.setString(3,  patient.getLname());
 			pst.setString(4,  patient.getAddress());
-			pst.setInt(5,  patient.getPhonenumber());
-			pst.setInt(6,  patient.getAmka());
+			pst.setLong(5,  patient.getPhonenumber());
+			pst.setLong(6,  patient.getAmka());
 			pst.setString(7,  patient.getIdno());
 
 			pst.executeUpdate();
 			curRowNo = 0;
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw e;
 		} finally {
 			if (pst != null) pst.close();
 			if (openConnection() != null) closeConnection();
-		}	
+		}
 	}
 
 	@Override
@@ -126,8 +117,8 @@ public class PatientDAOImpl implements IPatientDAO {
 				patient.setFname(rs.getString("FNAME"));
 				patient.setLname(rs.getString("LNAME"));
 				patient.setAddress(rs.getString("ADDRESS"));
-				patient.setPhonenumber(rs.getInt("PHONENUMBER"));
-				patient.setAmka(rs.getInt("AMKA"));
+				patient.setPhonenumber(rs.getLong("PHONENUMBER"));
+				patient.setAmka(rs.getLong("AMKA"));
 				patient.setIdno(rs.getString("ID_NO"));
 				
 				patients.add(patient);

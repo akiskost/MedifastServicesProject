@@ -1,3 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -28,6 +32,10 @@
 </head>
 
 <body>
+
+<c:choose>
+  <c:when test="${not empty user}">
+
 <!--::header part start::-->
 <header class="main_menu home_menu">
   <div class="container">
@@ -48,14 +56,25 @@
               <li class="nav-item active">
                 <a class="nav-link" href="${pageContext.request.contextPath}/jsps/home.jsp">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/search">Patients Search</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Patients
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/search">Search for Patients</a>
+                  <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/jsps/newpatient.jsp">Add New Patient</a>
+                </div>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/jsps/newpatient.jsp">Add New Patient</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/jsps/newappointment.jsp">New Appointment</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Appointments
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/appointmentsearch">Search Appointments</a>
+                  <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/newappointment">New Appointment</a>
+                </div>
               </li>
             </ul>
           </div>
@@ -79,9 +98,10 @@
       </div>
       <div class="col-md-6 col-lg-5 text-center">
         <div class="our_depertment">
-          <h2>Welcome ${user.fname} ${user.lname}</h2>
+          <h2 class="padding_top">Welcome ${user.userFirstName} ${user.userLastName}</h2>
           <br>
-          <br>
+
+
           <div class="row">
             <div class="col-sm-6 col-sm-6">
               <div class="single_our_depertment" >
@@ -104,17 +124,59 @@
             <div class="col-sm-6 col-sm-6">
               <div class="single_our_depertment" >
                 <h4>New Appointment</h4>
-                <a href="${pageContext.request.contextPath}/jsps/newappointment.jsp" class="stretched-link"  aria-disabled="true"></a>
+                <a href="${pageContext.request.contextPath}/newappointment" class="stretched-link"  aria-disabled="true"></a>
               </div>
             </div>
 
           </div>
+
+          <br>
+
         </div>
       </div>
     </div>
   </div>
 </section>
 <!-- about us part end-->
+  </c:when>
+  <c:otherwise>
+    <section class="our_depertment padding_top padding_bottom">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-xl-4">
+            <form method="POST" action="${pageContext.request.contextPath}/login" class="form-signin">
+              <img class="mb-4" src="${pageContext.request.contextPath}/static/img/logolarge.png" alt="" width="72" height="72">
+              <h1 class="h3 mb-4 font-weight-bold">Please sign in</h1>
+              <div class="form-group">
+                <input type="text" name="email" class="form-control mb-3" placeholder="Email address" required autofocus>
+              </div>
+              <div class="form-group">
+                <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+              </div>
+              <br>${message}
+              <div class="checkbox mb-2">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>
+              <button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
+            </form>
+            <br>
+            <div class="col-md text-center">
+              <a href="#">Lost your password?</a>
+            </div>
+            <br>
+            <div class="col-md text-center">
+              <p>Don't have an account? <a href="#">Sign up here!</a></p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+  </c:otherwise>
+</c:choose>
 
 <!-- footer part start-->
 <footer class="footer-area fixed-bottom">

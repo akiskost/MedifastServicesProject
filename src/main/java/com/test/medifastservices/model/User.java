@@ -8,7 +8,7 @@ public class User {
     private String userFirstName;
     private String userLastName;
 
-    public User(){};
+    public User(){}
 
     public User(int uid, String email, String password, String userFirstName, String userLastName) {
         this.uid = uid;

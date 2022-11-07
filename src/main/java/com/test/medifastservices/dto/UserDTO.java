@@ -8,7 +8,7 @@ public class UserDTO {
     private String userFirstName;
     private String userLastName;
 
-    public UserDTO(){};
+    public UserDTO(){}
 
     public UserDTO(int uid, String email, String password, String userFirstName, String userLastName) {
         this.uid = uid;

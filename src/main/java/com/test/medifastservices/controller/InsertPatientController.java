@@ -45,8 +45,8 @@ public class InsertPatientController extends HttpServlet {
 		patientDTO.setFname(firstname);
 		patientDTO.setLname(lastname);
 		patientDTO.setAddress(address);
-		patientDTO.setPhonenumber(Integer.valueOf(phonenumber));
-		patientDTO.setAmka(Integer.valueOf(amka));
+		patientDTO.setPhonenumber(Long.valueOf(phonenumber));
+		patientDTO.setAmka(Long.valueOf(amka));
 		patientDTO.setIdno(idno);
 
 		

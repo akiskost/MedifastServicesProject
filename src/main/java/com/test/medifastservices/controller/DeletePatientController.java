@@ -32,8 +32,8 @@ public class DeletePatientController extends HttpServlet {
 		String firstname = request.getParameter("firstname");
 		String lastname = request.getParameter("lastname");
 		String address = request.getParameter("address");
-		int phonenumber = Integer.parseInt(request.getParameter("phonenumber"));
-		int amka = Integer.parseInt(request.getParameter("amka"));
+		long phonenumber = Long.parseLong(request.getParameter("phonenumber"));
+		long amka = Integer.parseInt(request.getParameter("amka"));
 		String idno = request.getParameter("idno");
 
 		// Construct DTO

@@ -5,13 +5,13 @@ public class Patient {
 	private String fname;
 	private String lname;
 	private String address;
-	private int phonenumber;
-	private int amka;
+	private Long phonenumber;
+	private Long amka;
 	private String idno;
 	
 	public Patient() {}
 
-	public Patient(int pid, String fname, String lname, String address, int phonenumber, int amka, String idno) {
+	public Patient(int pid, String fname, String lname, String address, Long phonenumber, Long amka, String idno) {
 		
 		this.pid = pid;
 		this.fname = fname;
@@ -55,19 +55,18 @@ public class Patient {
 		return address;
 	}
 
-	public Integer getPhonenumber() {
+	public Long getPhonenumber() {
 		return phonenumber;
 	}
 
-	public void setPhonenumber(Integer phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setPhonenumber(Long phonenumber) {this.phonenumber = phonenumber;
 	}
 
-	public Integer getAmka() {
+	public Long getAmka() {
 		return amka;
 	}
 
-	public void setAmka(Integer amka) {
+	public void setAmka(Long amka) {
 		this.amka = amka;
 	}
 

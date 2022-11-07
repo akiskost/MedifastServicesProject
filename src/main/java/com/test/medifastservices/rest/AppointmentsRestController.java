@@ -3,14 +3,10 @@ package com.test.medifastservices.rest;
 import com.google.gson.Gson;
 import com.test.medifastservices.dao.AppointmentDAOImpl;
 import com.test.medifastservices.dao.IAppointmentDAO;
-import com.test.medifastservices.dao.IPatientDAO;
-import com.test.medifastservices.dao.PatientDAOImpl;
 import com.test.medifastservices.model.Appointment;
-import com.test.medifastservices.model.Patient;
 import com.test.medifastservices.service.AppointmentServiceImpl;
 import com.test.medifastservices.service.IAppointmentService;
-import com.test.medifastservices.service.IPatientService;
-import com.test.medifastservices.service.PatientServiceImpl;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,12 +34,12 @@ public class AppointmentsRestController extends HttpServlet {
 
         List<Appointment> appointments;
         String jsonString;
-        Gson gson = new Gson();
+        Gson gson2 = new Gson();
 
         try {
             appointments = appointmentService.getAppointment();
             if (appointments != null) {
-                jsonString = gson.toJson(appointments);
+                jsonString = gson2.toJson(appointments);
 
 //				ObjectMapper mapper = new ObjectMapper();
 //				jsonString = mapper.writeValueAsString(patients);

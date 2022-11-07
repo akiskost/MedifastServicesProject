@@ -34,13 +34,18 @@
 </head>
 
 <body>
+
+<c:choose>
+<c:when test="${not empty user}">
+
 <!--::header part start::-->
-<header class="main_menu">
+<header class="main_menu home_menu">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="${pageContext.request.contextPath}/jsps/home.jsp"> <img src="${pageContext.request.contextPath}/static/img/logo.png" alt="logo"> </a>
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/jsps/home.jsp">
+                        <img src="${pageContext.request.contextPath}/static/img/logo.png" alt="logo"> </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -53,15 +58,34 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="${pageContext.request.contextPath}/jsps/home.jsp">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/search">Patients Search</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Patients
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/search">Search for Patients</a>
+                                    <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/jsps/newpatient.jsp">Add New Patient</a>
+                                </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/jsps/newpatient.jsp">Add New Patient</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Appointments
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/appointmentsearch">Search Appointments</a>
+                                    <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/newappointment">New Appointment</a>
+
+                                </div>
                             </li>
+
+
+
+
                         </ul>
                     </div>
-                    <a class="btn_2 d-none d-lg-block" href="${pageContext.request.contextPath}/index.jsp">Logout</a>
+                    <a class="btn_2 d-none d-lg-block" href="${pageContext.request.contextPath}/logout">Logout</a>
                 </nav>
             </div>
         </div>
@@ -118,6 +142,46 @@
 </section>
 <!-- main-->
 
+</c:when>
+    <c:otherwise>
+        <section class="our_depertment padding_top padding_bottom">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-xl-4">
+                        <form method="POST" action="${pageContext.request.contextPath}/login" class="form-signin">
+                            <img class="mb-4" src="${pageContext.request.contextPath}/static/img/logolarge.png" alt="" width="72" height="72">
+                            <h1 class="h3 mb-4 font-weight-bold">Please sign in</h1>
+                            <div class="form-group">
+                                <input type="text" name="email" class="form-control mb-3" placeholder="Email address" required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+                            </div>
+                            <br>${message}
+                            <div class="checkbox mb-2">
+                                <label>
+                                    <input type="checkbox" value="remember-me"> Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
+                        </form>
+                        <br>
+                        <div class="col-md text-center">
+                            <a href="#">Lost your password?</a>
+                        </div>
+                        <br>
+                        <div class="col-md text-center">
+                            <p>Don't have an account? <a href="#">Sign up here!</a></p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </c:otherwise>
+</c:choose>
+
 <!-- footer part start-->
 <footer class="footer-area fixed-bottom">
     <div class="footer section-top-border ">
@@ -150,25 +214,7 @@
     </c:if>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Success!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ssssssssssssss
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 <!-- jquery plugins here-->
@@ -188,24 +234,7 @@
 <script src="${pageContext.request.contextPath}/static/js/dataTables.bootstrap5.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/bootstrap-table.min.js"></script>
 
-<%--<script>--%>
-<%--    $(function() {--%>
-<%--        $("#submit").click(function() {--%>
-<%--            if($("#firstname").val() !="" && $("#lastname").val() !="") {--%>
-<%--                $('#exampleModal').modal('show');--%>
-<%--                // $(this).closest("form").submit();--%>
-<%--            }--%>
-<%--        });--%>
-<%--    });--%>
-<%--</script>--%>
 
-<%--<script>--%>
-<%--    $(document).on('click', '#submit-button', function(e){--%>
-<%--        if($("#firstname").val() != null){--%>
-<%--            $("#exampleModal").show();--%>
-<%--        }--%>
-<%--    });--%>
-<%--</script>--%>
 </body>
 
 </html>

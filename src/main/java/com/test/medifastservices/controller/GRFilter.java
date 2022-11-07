@@ -19,7 +19,7 @@ public class GRFilter extends HttpFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		((HttpServletRequest) request).setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 
 		// pass the request along the filter chain
 		chain.doFilter(request, response);

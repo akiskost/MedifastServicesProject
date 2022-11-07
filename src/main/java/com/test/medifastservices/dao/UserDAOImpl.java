@@ -3,6 +3,7 @@ package com.test.medifastservices.dao;
 import com.test.medifastservices.dto.UserDTO;
 import com.test.medifastservices.model.User;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 
 import static com.test.medifastservices.dao.dbutil.DBUtil.openConnection;
@@ -18,23 +19,20 @@ public class UserDAOImpl implements IUserDAO {
         User user = null;
 
         try {
-            String sql = "SELECT * FROM users WHERE email = ? AND password =?";
+            //String sql = "SELECT * FROM users WHERE fname = 'Admin'";
+
+            String sql = "SELECT * from users WHERE email = '" + email + "' AND password = '" + password + "'";
+
             pst = openConnection().prepareStatement(sql);
 
-            pst.setString(1, email);
-            pst.setString(2, password);
-
-            //ws edo pernane
-
             ResultSet rs = pst.executeQuery(sql);
-            System.out.println(rs);
+
             if (rs.next()) {
                 user = new User();
                 user.setUserFirstName(rs.getString("FNAME"));
-                user.setUserLastName(rs.getString("LANME"));
+                user.setUserLastName(rs.getString("LNAME"));
                 user.setEmail(email);
             }
-
             return user;
 
         } catch (SQLException | NullPointerException e) {

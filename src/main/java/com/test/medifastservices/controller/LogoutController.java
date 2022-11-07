@@ -1,6 +1,7 @@
 package com.test.medifastservices.controller;
 
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,18 +16,15 @@ public class LogoutController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        response.setContentType("text/html; charset=UTF-8");
+            response.setContentType("text/html; charset=UTF-8");
 
-        // HTTP SESSION
-        HttpSession session=request.getSession();
-        session.invalidate();
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                session.removeAttribute("user");
 
-        // call service
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/login.jsp");
+                dispatcher.forward(request, response);
+            }
+        }
 
-
-        request.getRequestDispatcher("/jsps/login.jsp").forward(request, response);
-
-
-
-    }
 }

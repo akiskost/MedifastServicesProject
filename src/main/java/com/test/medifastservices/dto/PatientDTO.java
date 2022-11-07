@@ -1,18 +1,18 @@
 package com.test.medifastservices.dto;
 
 public class PatientDTO {
-	private Integer pid;
+	private int pid;
 	private String fname;
 	private String lname;
 	private String address;
-	private Integer phonenumber;
-	private Integer amka;
+	private Long phonenumber;
+	private Long amka;
 	private String idno;
 
 	public PatientDTO() {
 	}
 
-	public PatientDTO(int pid, String fname, String lname, String address, int phonenumber, int amka, String idno) {
+	public PatientDTO(int pid, String fname, String lname, String address, Long phonenumber, Long amka, String idno) {
 		this.pid = pid;
 		this.fname = fname;
 		this.lname = lname;
@@ -54,19 +54,19 @@ public class PatientDTO {
 		this.address = address;
 	}
 
-	public int getPhonenumber() {
+	public Long getPhonenumber() {
 		return phonenumber;
 	}
 
-	public void setPhonenumber(int phonenumber) {
+	public void setPhonenumber(Long phonenumber) {
 		this.phonenumber = phonenumber;
 	}
 
-	public int getAmka() {
+	public Long getAmka() {
 		return amka;
 	}
 
-	public void setAmka(int amka) {
+	public void setAmka(Long amka) {
 		this.amka = amka;
 	}
 

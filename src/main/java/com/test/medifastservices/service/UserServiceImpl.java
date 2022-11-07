@@ -15,7 +15,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void checkedLogin(UserDTO userDTO) throws SQLException {
+    public User checkedLogin(UserDTO userDTO) throws SQLException {
 
         // Extract dto
         User user = new User();
@@ -26,7 +26,9 @@ public class UserServiceImpl implements IUserService {
 
 
         try {
-            userDAO.checkLogin(user.getEmail(), user.getPassword());
+            User newUser = userDAO.checkLogin(user.getEmail(), user.getPassword());
+            return newUser;
+
         } catch (SQLException e) {
             throw e;
         }

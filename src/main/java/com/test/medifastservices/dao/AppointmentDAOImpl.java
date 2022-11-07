@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.test.medifastservices.model.Appointment;
+import com.test.medifastservices.model.Patient;
+
+import javax.servlet.http.HttpSession;
 
 import static com.test.medifastservices.dao.dbutil.DBUtil.closeConnection;
 import static com.test.medifastservices.dao.dbutil.DBUtil.openConnection;
@@ -21,7 +24,14 @@ public class AppointmentDAOImpl implements IAppointmentDAO {
 
         try {
 
-            String sql = "SELECT PEID, patients.FNAME, patients.LNAME, DATE, EXAM_NAME, RESULT FROM patients_exams INNER JOIN patients ON patients_exams.PID=patients.PID INNER JOIN exams ON patients_exams.EID = exams.EID";
+            //CHECK SEC DB to explain
+//            HttpSession session = request.getSession();
+//            session.getAttribute("user");
+//
+
+           // String sql = "SELECT PEID, patients.FNAME, patients.LNAME, DATE, EXAM_NAME, RESULT FROM patients_exams INNER JOIN patients ON patients_exams.PID=patients.PID INNER JOIN exams ON patients_exams.EID = exams.EID";
+
+            String sql = "SELECT * FROM appointmentview";
             pst = openConnection().prepareStatement(sql);
             rs =  pst.executeQuery();
 
@@ -29,6 +39,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO {
                 Appointment appointment = new Appointment();
 
                 appointment.setApid(rs.getInt("PEID"));
+                appointment.setPid(rs.getInt("PID"));
                 appointment.setFname(rs.getString("FNAME"));
                 appointment.setLname(rs.getString("LNAME"));
                 appointment.setDate(rs.getString("DATE"));
@@ -39,6 +50,57 @@ public class AppointmentDAOImpl implements IAppointmentDAO {
             }
 
             return (appointments.size() > 0) ? appointments : null;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        } finally {
+            if (pst != null) pst.close();
+            if (openConnection() != null) closeConnection();
+        }
+    }
+
+    @Override
+    public void modifyAppointment(Appointment oldAppointment, Appointment newAppointment) throws SQLException {
+        PreparedStatement pst = null;
+
+        try {
+
+            String sql = "UPDATE patients_exams SET date = '" + newAppointment.getDate() + "' WHERE PEID = " + oldAppointment.getApid();
+
+            pst = openConnection().prepareStatement(sql);
+
+            pst.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        } finally {
+            if (pst != null) pst.close();
+            if (openConnection() != null) closeConnection();
+        }
+    }
+
+
+    @Override
+    public void addAppointment(Appointment appointment) throws SQLException {
+
+        //PREPARED STATEMENTS
+        PreparedStatement pst = null;
+
+        try {
+
+            String sql = "INSERT INTO patients_exams (PEID, PID, DATE, EID, RESULT)  VALUES (?, ?, ?, ?, ?)";
+            pst = openConnection().prepareStatement(sql);
+
+            pst.setInt(1,appointment.getApid());
+            pst.setInt(2, appointment.getPid());
+            pst.setString(3,  appointment.getDate());
+            pst.setString(4,  appointment.getExam());
+            pst.setString(5,  appointment.getResult());
+
+
+            pst.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();

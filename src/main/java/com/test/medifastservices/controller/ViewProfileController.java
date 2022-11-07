@@ -6,7 +6,6 @@ import com.test.medifastservices.model.Appointment;
 import com.test.medifastservices.service.AppointmentServiceImpl;
 import com.test.medifastservices.service.IAppointmentService;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,8 +15,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/appointmentsearch")
-public class AppointmentSearchController extends HttpServlet {
+@WebServlet("/view")
+public class ViewProfileController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     IAppointmentDAO appointmentDAO = new AppointmentDAOImpl();
@@ -39,10 +38,10 @@ public class AppointmentSearchController extends HttpServlet {
             if (appointments != null) {
 
                 request.setAttribute("appointments", appointments);
-                request.getRequestDispatcher("/jsps/appointments.jsp").forward(request, response);
+                request.getRequestDispatcher("jsps/patientsprofile.jsp").forward(request, response);
             } else {
                 request.setAttribute("appointmentNotFound", true);
-                request.getRequestDispatcher("/jsps/appointments.jsp").forward(request, response);
+                request.getRequestDispatcher("jsps/patientsprofile.jsp").forward(request, response);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -51,3 +50,4 @@ public class AppointmentSearchController extends HttpServlet {
     }
 
 }
+

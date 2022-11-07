@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap-table.min.css">
 
     <!-- animate CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/animate.css">
@@ -32,16 +32,24 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/style.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+
+<c:choose>
+    <c:when test="${not empty user}">
+
+
 <!--::header part start::-->
-<header class="main_menu">
+<header class="main_menu home_menu">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="${pageContext.request.contextPath}/jsps/home.jsp"> <img src="${pageContext.request.contextPath}/static/img/logo.png" alt="logo"> </a>
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/jsps/home.jsp">
+                        <img src="${pageContext.request.contextPath}/static/img/logo.png" alt="logo"> </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -54,15 +62,34 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="${pageContext.request.contextPath}/jsps/home.jsp">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/search">Patients Search</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Patients
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/search">Search for Patients</a>
+                                    <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/jsps/newpatient.jsp">Add New Patient</a>
+                                </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/jsps/newpatient.jsp">Add New Patient</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Appointments
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/appointmentsearch">Search Appointments</a>
+                                    <a class="dropdown-item nav-link" href="${pageContext.request.contextPath}/newappointment">New Appointment</a>
+
+                                </div>
                             </li>
+
+
+
+
                         </ul>
                     </div>
-                    <a class="btn_2 d-none d-lg-block" href="${pageContext.request.contextPath}/index.jsp">Logout</a>
+                    <a class="btn_2 d-none d-lg-block" href="${pageContext.request.contextPath}/logout">Logout</a>
                 </nav>
             </div>
         </div>
@@ -104,9 +131,9 @@
                                         <td>${patient.phonenumber}</td>
                                         <td>${patient.amka}</td>
                                         <td>${patient.idno}</td>
-                                        <td><a id="${patient.pid}" href="${pageContext.request.contextPath}/delete?pid=${patient.pid}&firstname=${patient.fname}&lastname=${patient.lname}&address=${patient.address}&phonenumber=${patient.phonenumber}&amka=${patient.amka}&idno=${patient.idno}" onclick="return confirm('Are you sure you want to delete the patient? You CANT undo this action');">Delete</a></td>
-                                        <td><a href="${pageContext.request.contextPath}/jsps/patientupdate.jsp?pid=${patient.pid}&firstname=${patient.fname}&lastname=${patient.lname}&address=${patient.address}&phonenumber=${patient.phonenumber}&amka=${patient.amka}&idno=${patient.idno}">Update</a></td>
-                                        <td><a href="${pageContext.request.contextPath}/jsps/patientsprofile.jsp?pid=${patient.pid}&firstname=${patient.fname}&lastname=${patient.lname}&address=${patient.address}&phonenumber=${patient.phonenumber}&amka=${patient.amka}&idno=${patient.idno}">View Profile</a></td>
+                                        <td><a class="btn btn-danger rounded-0 fa fa-trash" id="${patient.pid}" href="${pageContext.request.contextPath}/delete?pid=${patient.pid}&firstname=${patient.fname}&lastname=${patient.lname}&address=${patient.address}&phonenumber=${patient.phonenumber}&amka=${patient.amka}&idno=${patient.idno}" onclick="return confirm('Are you sure you want to delete the patient? You CANT undo this action');"></a></td>
+                                        <td><a class="btn btn-info rounded-0 fa fa-pencil-square-o" href="${pageContext.request.contextPath}/jsps/patientupdate.jsp?pid=${patient.pid}&firstname=${patient.fname}&lastname=${patient.lname}&address=${patient.address}&phonenumber=${patient.phonenumber}&amka=${patient.amka}&idno=${patient.idno}"></a></td>
+                                        <td><a class="btn btn-warning rounded-0 fa fa-user" href="${pageContext.request.contextPath}/view?pid=${patient.pid}&firstname=${patient.fname}&lastname=${patient.lname}&address=${patient.address}&phonenumber=${patient.phonenumber}&amka=${patient.amka}&idno=${patient.idno}"></a></td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -133,13 +160,47 @@
     </div>
 </section>
 
-<%--bootstrap alert
-<div class="alert alert-danger" role="alert">
-    A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-</div>--%>
-
 <!-- main-->
 
+</c:when>
+<c:otherwise>
+    <section class="our_depertment padding_top padding_bottom">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-xl-4">
+                    <form method="POST" action="${pageContext.request.contextPath}/login" class="form-signin">
+                        <img class="mb-4" src="${pageContext.request.contextPath}/static/img/logolarge.png" alt="" width="72" height="72">
+                        <h1 class="h3 mb-4 font-weight-bold">Please sign in</h1>
+                        <div class="form-group">
+                            <input type="text" name="email" class="form-control mb-3" placeholder="Email address" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+                        </div>
+                        <br>${message}
+                        <div class="checkbox mb-2">
+                            <label>
+                                <input type="checkbox" value="remember-me"> Remember me
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
+                    </form>
+                    <br>
+                    <div class="col-md text-center">
+                        <a href="#">Lost your password?</a>
+                    </div>
+                    <br>
+                    <div class="col-md text-center">
+                        <p>Don't have an account? <a href="#">Sign up here!</a></p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+</c:otherwise>
+</c:choose>
 <!-- footer part start-->
 <footer class="footer-area fixed-bottom">
     <div class="footer section-top-border ">

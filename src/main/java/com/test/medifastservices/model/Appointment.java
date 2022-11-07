@@ -3,6 +3,7 @@ package com.test.medifastservices.model;
 public class Appointment {
 
     private int apid;
+    private int pid;
     private String fname;
     private String lname;
     private String date;
@@ -11,13 +12,22 @@ public class Appointment {
 
     public Appointment() {}
 
-    public Appointment(int apid, String fname, String lname, String date, String exam, String result) {
+    public Appointment(int pid, int apid, String fname, String lname, String date, String exam, String result) {
+        this.pid = pid;
         this.apid = apid;
         this.fname = fname;
         this.lname = lname;
         this.date = date;
         this.exam = exam;
         this.result = result;
+    }
+
+    public int getPid() {
+        return pid;
+    }
+
+    public void setPid(int pid) {
+        this.pid = pid;
     }
 
     public int getApid() {
