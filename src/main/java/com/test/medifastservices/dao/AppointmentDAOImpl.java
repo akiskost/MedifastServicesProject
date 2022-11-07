@@ -24,13 +24,6 @@ public class AppointmentDAOImpl implements IAppointmentDAO {
 
         try {
 
-            //CHECK SEC DB to explain
-//            HttpSession session = request.getSession();
-//            session.getAttribute("user");
-//
-
-           // String sql = "SELECT PEID, patients.FNAME, patients.LNAME, DATE, EXAM_NAME, RESULT FROM patients_exams INNER JOIN patients ON patients_exams.PID=patients.PID INNER JOIN exams ON patients_exams.EID = exams.EID";
-
             String sql = "SELECT * FROM appointmentview";
             pst = openConnection().prepareStatement(sql);
             rs =  pst.executeQuery();
@@ -59,6 +52,44 @@ public class AppointmentDAOImpl implements IAppointmentDAO {
             if (openConnection() != null) closeConnection();
         }
     }
+
+    @Override
+    public List<Appointment> getAppointmentByApid(int pid) throws SQLException {
+        PreparedStatement pst = null;
+        List<Appointment> appointments = new ArrayList<>();
+        ResultSet rs;
+
+        try {
+
+            String sql = "SELECT * FROM appointmentview WHERE PID LIKE'" + pid + "%'";
+            pst = openConnection().prepareStatement(sql);
+            rs =  pst.executeQuery();
+
+            while (rs.next()) {
+                Appointment appointment = new Appointment();
+
+                appointment.setApid(rs.getInt("PEID"));
+                appointment.setPid(rs.getInt("PID"));
+                appointment.setFname(rs.getString("FNAME"));
+                appointment.setLname(rs.getString("LNAME"));
+                appointment.setDate(rs.getString("DATE"));
+                appointment.setExam(rs.getString("EXAM_NAME"));
+                appointment.setResult(rs.getString("RESULT"));
+
+                appointments.add(appointment);
+            }
+
+            return (appointments.size() > 0) ? appointments : null;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        } finally {
+            if (pst != null) pst.close();
+            if (openConnection() != null) closeConnection();
+        }
+    }
+
 
     @Override
     public void modifyAppointment(Appointment oldAppointment, Appointment newAppointment) throws SQLException {

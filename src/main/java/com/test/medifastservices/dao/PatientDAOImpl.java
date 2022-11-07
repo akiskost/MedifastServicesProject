@@ -98,14 +98,14 @@ public class PatientDAOImpl implements IPatientDAO {
 	}
 
 	@Override
-	public List<Patient> getpatientsByLastnane(String lastname) throws SQLException {
+	public List<Patient> getPatients() throws SQLException {
 		PreparedStatement pst = null;
 		List<Patient> patients = new ArrayList<>();
 		ResultSet rs = null;
 		
 		try {
 			
-			String sql = "SELECT PID, FNAME, LNAME, ADDRESS, PHONENUMBER, AMKA, ID_NO FROM patients WHERE LNAME LIKE '" + lastname + "%'";
+			String sql = "SELECT PID, FNAME, LNAME, ADDRESS, PHONENUMBER, AMKA, ID_NO FROM patients";
 			pst = openConnection().prepareStatement(sql);
 			rs =  pst.executeQuery();
 				

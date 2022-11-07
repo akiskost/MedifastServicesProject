@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/style.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -127,7 +129,7 @@
                                         <td>${appointment.date}</td>
                                         <td>${appointment.exam}</td>
                                         <td>${appointment.result}</td>
-                                        <td><a id="${appointment.apid}" href="${pageContext.request.contextPath}/jsps/appointmentreschedule.jsp?pid=${appointment.pid}&apid=${appointment.apid}&firstname=${appointment.fname}&lastname=${appointment.lname}&date=${appointment.date}&exam=${appointment.exam}&result=${appointment.result}">Reschedule</a></td>
+                                        <td><a class="fa fa-refresh" aria-hidden="true" id="${appointment.apid}" href="${pageContext.request.contextPath}/jsps/appointmentreschedule.jsp?pid=${appointment.pid}&apid=${appointment.apid}&firstname=${appointment.fname}&lastname=${appointment.lname}&date=${appointment.date}&exam=${appointment.exam}&result=${appointment.result}" ></a></td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

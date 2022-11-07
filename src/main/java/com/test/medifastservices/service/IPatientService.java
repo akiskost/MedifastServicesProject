@@ -61,19 +61,7 @@ public interface IPatientService {
 			throws SQLException;  // patientNotFoundException
 	
 	
-	/**
-	 * Gets back to the caller a list of the {@link Patient} objects identified
-	 * by their lastname or lastaname's initial characters
-	 * 
-	 * @param lastname
-	 * 			a string object that contains the lastnane or the initial letters
-	 * 			that lastname starts with. 
-	 * @return
-	 * 			a list that contains the results of the search, or null if no
-	 * 			results are found
-	 * @throws SQLException
-	 * 			if any error happens during SQL search 
-	 */
-	List<Patient> getpatientByLastname(String lastname) throws SQLException;
+
+	List<Patient> getpatients() throws SQLException;
 	
 }

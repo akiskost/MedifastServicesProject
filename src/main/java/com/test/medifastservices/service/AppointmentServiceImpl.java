@@ -26,6 +26,16 @@ public class AppointmentServiceImpl implements IAppointmentService {
         }
     }
 
+
+    @Override
+    public List<Appointment> getAppointmentByApid(int pid) throws SQLException {
+        try {
+            return appointmentDAO.getAppointmentByApid(pid);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
     @Override
     public void modifyAppointment(AppointmentDTO oldAppointmentDTO, AppointmentDTO newAppointmentDTO)
             throws SQLException {

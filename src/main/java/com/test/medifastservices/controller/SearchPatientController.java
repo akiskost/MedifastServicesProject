@@ -36,7 +36,7 @@ public class SearchPatientController extends HttpServlet {
 		patientDTO.setLname(lastname);
 
 		try {
-			List<Patient> patients = patientServ.getpatientByLastname(lastname);
+			List<Patient> patients = patientServ.getpatients();
 			if (patients != null) {
 				request.setAttribute("patients", patients);
 				request.getRequestDispatcher("/jsps/patients.jsp").forward(request, response);

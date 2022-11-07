@@ -9,6 +9,9 @@ import com.test.medifastservices.model.Appointment;
 
 public interface IAppointmentDAO {
     List<Appointment> getAppointments() throws SQLException;
+
+    List<Appointment> getAppointmentByApid(int pid) throws SQLException;
+
     void modifyAppointment(Appointment oldAppointment, Appointment newAppointment) throws SQLException;
     void addAppointment (Appointment appointment) throws SQLException;
 }

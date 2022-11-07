@@ -2,6 +2,7 @@ package com.test.medifastservices.controller;
 
 import com.test.medifastservices.dao.AppointmentDAOImpl;
 import com.test.medifastservices.dao.IAppointmentDAO;
+import com.test.medifastservices.dto.AppointmentDTO;
 import com.test.medifastservices.model.Appointment;
 import com.test.medifastservices.service.AppointmentServiceImpl;
 import com.test.medifastservices.service.IAppointmentService;
@@ -26,14 +27,11 @@ public class ViewProfileController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html; charset=UTF-8");
 
-        //String lastname = "";
-        // Construct DTO
-        //AppointmentDTO appointmentDTO = new AppointmentDTO();
-        //appointmentDTO.setLname();
+        int pid = Integer.parseInt(request.getParameter("pid"));
 
         try {
 
-            List<Appointment> appointments = appointmentService.getAppointment();
+            List<Appointment> appointments = appointmentService.getAppointmentByApid(pid);
 
             if (appointments != null) {
 

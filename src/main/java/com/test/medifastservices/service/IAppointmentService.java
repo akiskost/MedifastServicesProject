@@ -11,6 +11,8 @@ public interface IAppointmentService {
 
     List<Appointment> getAppointment() throws SQLException;
 
+    List<Appointment> getAppointmentByApid(int pid) throws SQLException;
+
     void modifyAppointment(AppointmentDTO oldAppointmentDTO, AppointmentDTO newAppointmentDTO)
             throws SQLException;  // patientNotFoundException
 

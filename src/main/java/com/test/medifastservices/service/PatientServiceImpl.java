@@ -41,27 +41,19 @@ public class PatientServiceImpl implements IPatientService {
 			throws SQLException {  // patientNotFoundException
 		Patient patientToDelete = new Patient();
 		patientToDelete.setPid(patientDTO.getPid());
-		//patientToDelete.setSname(patientDTO.getSname());
-		
 		try {
-			//if (patientDAO.getpatientsByLastnane(patientToDelete.getSname()) != null ) {
-			//	patientToDelete.setId(patientDAO.getpatientsByLastnane(patientToDelete.getSname()).get(0).getId());
 				patientDAO.delete(patientToDelete);
-			//} else {
-			//	throw new patientNotFoundException(patientToDelete);
-			//}
-		} catch (SQLException e) {  // patientNotFoundException |
-			// Log the exception
+
+		} catch (SQLException e) {
 			throw e;
 		}
 	}
 
 	@Override
 	public void updatepatient(PatientDTO oldPatientDTO, PatientDTO newPatientDTO)
-			throws SQLException {   // patientNotFoundException
+			throws SQLException {
 		
 		// extract DTO
-
 		Patient patientToUpdate = new Patient();
 
 		patientToUpdate.setPid(oldPatientDTO.getPid());
@@ -78,22 +70,16 @@ public class PatientServiceImpl implements IPatientService {
 		
 		// Forward to DAO
 		try {
-			//if (patientDAO.getpatientsByLastnane(patientToUpdate.getSname()) != null ) {
-				//patientToUpdate.setId(patientDAO.getpatientsByLastnane(patientToUpdate.getSname()).get(0).getId());
 				patientDAO.update(patientToUpdate, newPatient);
-			//} else {
-				//throw new patientNotFoundException(patientToUpdate);
-			//}
-		} catch (SQLException e) { //patientNotFoundException | 
-			// Log the exception
+		} catch (SQLException e) {
 			throw e;
 		}
 	}
 
 	@Override
-	public List<Patient> getpatientByLastname(String lastname) throws SQLException {
+	public List<Patient> getpatients() throws SQLException {
 		try {
-			return patientDAO.getpatientsByLastnane(lastname);
+			return patientDAO.getPatients();
 		} catch (SQLException e) {
 			throw e;
 		}

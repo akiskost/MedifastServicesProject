@@ -2,7 +2,6 @@ package com.test.medifastservices.rest;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -38,7 +37,7 @@ public class PatientRestController extends HttpServlet {
 		Gson gson = new Gson();
 		
 		try {
-			patients = patientServ.getpatientByLastname(lastname);
+			patients = patientServ.getpatients();
 			if (patients != null) {
 				jsonString = gson.toJson(patients);
 				
