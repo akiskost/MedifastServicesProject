@@ -116,7 +116,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO {
     @Override
     public void addAppointment(Appointment appointment) throws SQLException {
 
-        //PREPARED STATEMENTS
+        //PREPARED STATEMENT
         PreparedStatement pst = null;
 
         try {

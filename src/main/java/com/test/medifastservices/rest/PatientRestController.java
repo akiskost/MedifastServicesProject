@@ -40,11 +40,8 @@ public class PatientRestController extends HttpServlet {
 			patients = patientServ.getpatients();
 			if (patients != null) {
 				jsonString = gson.toJson(patients);
-				
-//				ObjectMapper mapper = new ObjectMapper();
-//				jsonString = mapper.writeValueAsString(patients);
+
 				response.getWriter().write(jsonString);
-				// JAX-RS -> Jersey / RESTEasy
 				
 			} else {
 				response.getWriter().write("{}");

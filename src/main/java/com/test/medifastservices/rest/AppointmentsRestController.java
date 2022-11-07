@@ -41,10 +41,7 @@ public class AppointmentsRestController extends HttpServlet {
             if (appointments != null) {
                 jsonString = gson2.toJson(appointments);
 
-//				ObjectMapper mapper = new ObjectMapper();
-//				jsonString = mapper.writeValueAsString(patients);
                 response.getWriter().write(jsonString);
-                // JAX-RS -> Jersey / RESTEasy
 
             } else {
                 response.getWriter().write("{}");
