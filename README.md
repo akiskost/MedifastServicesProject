@@ -58,3 +58,4 @@ Download: https://aws.amazon.com/corretto/
 ---
 
 ### Credits
+AUEB Coding Factory program and professor Athanasios Androutsos for providing base architecture
