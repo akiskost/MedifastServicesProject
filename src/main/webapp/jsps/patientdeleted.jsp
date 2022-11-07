@@ -100,8 +100,8 @@
                 <div class="depertment_content">
 
                     <div class="row justify-content-center text-center">
-                        <div class="col-xl">
-                            <h2>Patient Deleted!</h2>
+                        <div class="col-xl-4">
+                            <h1>Patient Deleted!</h1>
                             <br>
                             <button type="submit" class="btn btn-primary" onclick="document.location='${pageContext.request.contextPath}/search'"> Return to home</button>
                         </div>
@@ -114,45 +114,34 @@
 </section>
 <!-- main-->
 
-</c:when>
-<c:otherwise>
-    <section class="our_depertment padding_top padding_bottom">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-xl-4">
-                    <form method="POST" action="${pageContext.request.contextPath}/login" class="form-signin">
-                        <img class="mb-4" src="${pageContext.request.contextPath}/static/img/logolarge.png" alt="" width="72" height="72">
-                        <h1 class="h3 mb-4 font-weight-bold">Please sign in</h1>
-                        <div class="form-group">
-                            <input type="text" name="email" class="form-control mb-3" placeholder="Email address" required autofocus>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
-                        </div>
-                        <br>${message}
-                        <div class="checkbox mb-2">
-                            <label>
-                                <input type="checkbox" value="remember-me"> Remember me
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
-                    </form>
-                    <br>
-                    <div class="col-md text-center">
-                        <a href="#">Lost your password?</a>
+    </c:when>
+    <c:otherwise>
+        <section class="our_depertment padding_top padding_bottom">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-xl-4">
+                        <form method="POST" action="${pageContext.request.contextPath}/login" class="form-signin">
+                            <img class="mb-4" src="${pageContext.request.contextPath}/static/img/logolarge.png" alt="" width="72" height="72">
+                            <h1 class="h3 mb-4 font-weight-bold">Please sign in</h1>
+                            <div class="form-group">
+                                <input type="text" name="email" class="form-control mb-3" placeholder="Email address" required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+                            </div>
+                            <br>${message}
+                            <button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
+                        </form>
+                        <br>
                     </div>
-                    <br>
-                    <div class="col-md text-center">
-                        <p>Don't have an account? <a href="#">Sign up here!</a></p>
-                    </div>
+
+
                 </div>
-
-
             </div>
-        </div>
-    </section>
-</c:otherwise>
+        </section>
+    </c:otherwise>
 </c:choose>
+
 
 <!-- footer part start-->
 <footer class="footer-area">

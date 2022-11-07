@@ -8,7 +8,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Medifast - Patient Search</title>
+    <title>Welcome to Medifast</title>
     <link rel="icon" href="${pageContext.request.contextPath}/static/img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
@@ -56,7 +56,7 @@
                             <h5>Manage Appointments</h5>
                         </div>
                         <div class="single_item">
-                            <img src="${pageContext.request.contextPath}/static/img/icon/banner_3.svg" alt="">
+                            <img src="${pageContext.request.contextPath}/static/img/icon/banner_1.svg" alt="">
                             <h5>Search Patient History</h5>
                         </div>
                     </div>
@@ -71,23 +71,19 @@
 
 
 <!-- footer part start-->
-<footer class="footer-area ">
-    <div class="footer section_padding section-top-border">
+<footer class="footer-area fixed-bottom">
+    <div class="footer section-top-border ">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-2 single-footer-widget text-center">
-                <a href="#" class="footer_logo"> <img src="${pageContext.request.contextPath}/static/img/logo.png" alt="#"> </a>
-                    <div class="row social_logo justify-content-center">
+            <div class="row justify-content-center text-center">
+                <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">
+                    <a href="#" class="footer_logo"> <img src="${pageContext.request.contextPath}/static/img/logo.png" alt="#"> </a>
+                    <div class="social_logo justify-content-center">
                         <a href="#"><i class="ti-facebook"></i></a>
                         <a href="#"> <i class="ti-twitter"></i> </a>
                         <a href="#"><i class="ti-instagram"></i></a>
-                        <a href="#"><i class="ti-linkedin"></i></a>
-                        <a href="#"><i class="ti-email"></i></a>
-                        <a href="#"><i class="ti-info"></i></a>
-
+                        <a href="#"><i class="ti-skype"></i></a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -95,22 +91,22 @@
 <!-- footer part end-->
 
 <!-- jquery plugins here-->
-<script src="js/jquery-1.12.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery-1.12.1.min.js"></script>
 <!-- popper js -->
-<script src="js/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/popper.min.js"></script>
 <!-- bootstrap js -->
-<script src="js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js"></script>
 <!-- owl carousel js -->
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/owl.carousel.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery.nice-select.min.js"></script>
 <!-- contact js -->
-<script src="js/jquery.ajaxchimp.min.js"></script>
-<script src="js/jquery.form.js"></script>
-<script src="js/jquery.validate.min.js"></script>
-<script src="js/mail-script.js"></script>
-<script src="js/contact.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery.ajaxchimp.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery.form.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery.validate.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/mail-script.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/contact.js"></script>
 <!-- custom js -->
-<script src="js/custom.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/custom.js"></script>
 </body>
 
 </html>

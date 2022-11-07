@@ -197,21 +197,9 @@
                                 <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
                             </div>
                             <br>${message}
-                            <div class="checkbox mb-2">
-                                <label>
-                                    <input type="checkbox" value="remember-me"> Remember me
-                                </label>
-                            </div>
                             <button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
                         </form>
                         <br>
-                        <div class="col-md text-center">
-                            <a href="#">Lost your password?</a>
-                        </div>
-                        <br>
-                        <div class="col-md text-center">
-                            <p>Don't have an account? <a href="#">Sign up here!</a></p>
-                        </div>
                     </div>
 
 
@@ -220,6 +208,7 @@
         </section>
     </c:otherwise>
 </c:choose>
+
 
 <!-- footer part start-->
 <footer class="footer-area fixed-bottom">

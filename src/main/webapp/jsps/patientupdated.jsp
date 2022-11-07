@@ -79,10 +79,6 @@
 
                                 </div>
                             </li>
-
-
-
-
                         </ul>
                     </div>
                     <a class="btn_2 d-none d-lg-block" href="${pageContext.request.contextPath}/logout">Logout</a>
@@ -101,8 +97,8 @@
                 <div class="depertment_content">
 
                     <div class="row justify-content-center text-center">
-                        <div class="col-xl">
-                            <h2>Patient Information updated!</h2>
+                        <div class="col-xl-4">
+                            <h1>Patient Information updated!</h1>
                             <br>
                             <button type="submit" class="btn btn-primary" onclick="document.location='${pageContext.request.contextPath}/jsps/home.jsp'"> Return to home</button>
                         </div>
@@ -131,21 +127,9 @@
                                 <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
                             </div>
                             <br>${message}
-                            <div class="checkbox mb-2">
-                                <label>
-                                    <input type="checkbox" value="remember-me"> Remember me
-                                </label>
-                            </div>
                             <button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
                         </form>
                         <br>
-                        <div class="col-md text-center">
-                            <a href="#">Lost your password?</a>
-                        </div>
-                        <br>
-                        <div class="col-md text-center">
-                            <p>Don't have an account? <a href="#">Sign up here!</a></p>
-                        </div>
                     </div>
 
 

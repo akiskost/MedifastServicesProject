@@ -52,22 +52,27 @@
                         <div class="form-group">
                             <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
                         </div>
-                        <br>${message}
-                        <div class="checkbox mb-2">
-                            <label>
-                                <input type="checkbox" value="remember-me"> Remember me
-                            </label>
-                        </div>
+                        <br>
+                        <div class="text-xl-center h5 mb-4 font-weight-bold">${message}</div>
+                        <br>
+<%--                        Remember me link--%>
+<%--                        <div class="checkbox mb-2">--%>
+<%--                            <label>--%>
+<%--                                <input type="checkbox" value="remember-me"> Remember me--%>
+<%--                            </label>--%>
+<%--                        </div>--%>
                         <button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
                     </form>
                     <br>
-                    <div class="col-md text-center">
-                        <a href="#">Lost your password?</a>
-                    </div>
-                    <br>
-                    <div class="col-md text-center">
-                        <p>Don't have an account? <a href="#">Sign up here!</a></p>
-                    </div>
+<%--                    Lost your password link  --%>
+<%--                    <div class="col-md text-center">--%>
+<%--                        <a href="#">Lost your password?</a>--%>
+<%--                    </div>--%>
+<%--                    <br>--%>
+<%--                    Sign Up link --%>
+<%--                    <div class="col-md text-center">--%>
+<%--                        <p>Don't have an account? <a href="#">Sign up here!</a></p>--%>
+<%--                    </div>--%>
                 </div>
 
 
@@ -81,16 +86,6 @@
         <p>Login Error</p>
     </c:if>
 </div>
-
-
-
-
-
-
-
-
-
-
 
 <!-- footer part start-->
 <footer class="footer-area fixed-bottom">
