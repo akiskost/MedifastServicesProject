@@ -44,6 +44,7 @@ Download: https://aws.amazon.com/corretto/
 2. Server Setup: Install Tomcat 9
    1. For IntelliJ : Add a local Tomcat 9 configuration. Add Project in Deployment (Build path)
    2. For Eclpise: Add a Tomcat 9 server, choose JDK 11 & run on server
+3. Use admin@medifast.com, pass 123 or groe@medifast.com, pass 123 to login.
 
 ---
 
