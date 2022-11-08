@@ -96,7 +96,7 @@
 <!-- Header part end-->
 
 <!-- main-->
-<section class="our_depertment section_padding single_pepertment_page">
+<section class="our_depertment section_padding single_pepertment_page padding_bottom">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-12">
@@ -129,9 +129,6 @@
                                 </div>
 
                                 <button type="submit" id="submit-button" class="btn btn-primary" > Update Information </button>
-
-
-
                             </form>
                         </div>
                     </div>
@@ -172,8 +169,8 @@
 </c:choose>
 
 <!-- footer part start-->
-<footer class="footer-area fixed-bottom">
-    <div class="footer section-top-border ">
+<footer class="footer-area">
+    <div class="footer section-top-border section_padding ">
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">

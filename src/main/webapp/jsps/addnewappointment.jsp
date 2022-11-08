@@ -139,12 +139,14 @@
         </div>
     </div>
 </section>
-<!-- main-->
+        <br>
+
+        <!-- main-->
 
 
 <!-- footer part start-->
-<footer class="footer-area fixed-bottom">
-    <div class="footer section-top-border ">
+<footer class="footer-area">
+    <div class="footer section-top-border section_padding ">
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">

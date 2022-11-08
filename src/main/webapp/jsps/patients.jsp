@@ -98,7 +98,7 @@
 <!-- Header part end-->
 
 <!-- main-->
-<section class="about_us_text padding_top">
+<section class="about_us_text padding_top section_padding">
     <div class="container">
         <div class="row justify-content-center text-center">
             <div class="col-xl-12">
@@ -192,8 +192,8 @@
 
 
 <!-- footer part start-->
-<footer class="footer-area fixed-bottom">
-    <div class="footer section-top-border ">
+<footer class="footer-area">
+    <div class="footer section_padding section-top-border">
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">

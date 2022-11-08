@@ -140,11 +140,13 @@
         </div>
     </div>
 </section>
+    <br>
+    <br>
 <!-- main-->
 
 </c:when>
     <c:otherwise>
-        <section class="our_depertment padding_top padding_bottom">
+        <section class="our_depertment padding_bottom section_padding">
             <div class="container">
                 <div class="row justify-content-center text-center">
                     <div class="col-xl-4">
@@ -160,20 +162,18 @@
                             <br>${message}
                             <button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
                         </form>
-                        <br>
                     </div>
-
-
                 </div>
             </div>
         </section>
+        <br>
     </c:otherwise>
 </c:choose>
 
 
 <!-- footer part start-->
-<footer class="footer-area fixed-bottom">
-    <div class="footer section-top-border ">
+<footer class="footer-area">
+    <div class="footer section_padding section-top-border">
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">
