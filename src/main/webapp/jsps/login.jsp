@@ -88,7 +88,7 @@
 </div>
 
 <!-- footer part start-->
-<footer class="footer-area">
+<footer class="footer-area single-footer-widget">
     <div class="footer section-top-border ">
         <div class="container">
             <div class="row justify-content-center text-center">
@@ -104,8 +104,7 @@
             </div>
         </div>
     </div>
-</footer><!-- footer part end-->
-
+</footer>
 <div class="center">
     <c:if test="${sqlError}">
         <p>Error in insert. Please try again</p>

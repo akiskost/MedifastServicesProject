@@ -167,7 +167,7 @@
 </c:choose>
 
 <!-- footer part start-->
-<footer class="footer-area ">
+<footer class="footer-area single-footer-widget">
   <div class="footer section-top-border ">
     <div class="container">
       <div class="row justify-content-center text-center">

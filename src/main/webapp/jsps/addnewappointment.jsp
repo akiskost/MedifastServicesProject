@@ -77,10 +77,6 @@
 
                                 </div>
                             </li>
-
-
-
-
                         </ul>
                     </div>
                     <a class="btn_2 d-none d-lg-block" href="${pageContext.request.contextPath}/logout">Logout</a>
@@ -122,14 +118,13 @@
                                         <option value="105">Surgery</option>
                                     </select>
                                 </div>
+                                <br>
+                                <br>
+                                <br>
                                 <div class="form-group">
                                     <input name="date" type="date" class="form-control" id="app5" required>
                                 </div>
-
                                 <button type="submit" id="submit-button" class="btn btn-primary" > Create Appointment </button>
-
-
-
                             </form>
                         </div>
                     </div>

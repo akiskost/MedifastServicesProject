@@ -172,8 +172,8 @@
 
 
 <!-- footer part start-->
-<footer class="footer-area">
-    <div class="footer section_padding section-top-border">
+<footer class="footer-area ">
+    <div class="footer section-top-border border-bottom-0 ">
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">

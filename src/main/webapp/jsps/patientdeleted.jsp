@@ -144,10 +144,10 @@
 
 
 <!-- footer part start-->
-<footer class="footer-area">
-    <div class="footer section_padding">
+<footer class="footer-area single-footer-widget">
+    <div class="footer section-top-border ">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center text-center">
                 <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">
                     <a href="#" class="footer_logo"> <img src="${pageContext.request.contextPath}/static/img/logo.png" alt="#"> </a>
                     <div class="social_logo justify-content-center">
@@ -157,13 +157,10 @@
                         <a href="#"><i class="ti-skype"></i></a>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
-</footer>
-<!-- footer part end-->
+</footer><!-- footer part end-->
 
 <div class="center">
     <c:if test="${sqlError}">
