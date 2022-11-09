@@ -99,12 +99,12 @@
 
 <!-- main-->
 <section class="about_us_text padding_top section_padding">
-    <div class="container">
+    <div class="container table-responsive">
         <div class="row justify-content-center text-center">
-            <div class="col-xl-12">
+            <div class="col-xl-12  ">
                 <div class="depertment_content">
                     <div class="row justify-content-center">
-                        <div class="col-xl">
+                        <div class="col-xl  ">
                             <h2>Patient Search</h2>
                             <table id="example" class="table table-striped table-bordered" style="width:100%">
                                 <thead>

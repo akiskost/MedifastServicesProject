@@ -119,7 +119,7 @@
 
 	</c:when>
 	<c:otherwise>
-		<section class="our_depertment padding_top padding_bottom">
+		<section class="our_depertment about_us padding_top padding_bottom fixed-bottom">
 			<div class="container">
 				<div class="row justify-content-center text-center">
 					<div class="col-xl-4">
@@ -133,21 +133,9 @@
 								<input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
 							</div>
 							<br>${message}
-							<div class="checkbox mb-2">
-								<label>
-									<input type="checkbox" value="remember-me"> Remember me
-								</label>
-							</div>
 							<button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
 						</form>
-						<br>
-						<div class="col-md text-center">
-							<a href="#">Lost your password?</a>
-						</div>
-						<br>
-						<div class="col-md text-center">
-							<p>Don't have an account? <a href="#">Sign up here!</a></p>
-						</div>
+						<br><br><br><br><br><br><br><br><br><br>
 					</div>
 
 

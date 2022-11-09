@@ -134,10 +134,39 @@
         </div>
     </div>
 </section>
-        <br>
+<br>
+<!-- main-->
 
-        <!-- main-->
 
+
+
+    </c:when>
+    <c:otherwise>
+        <section class="our_depertment about_us padding_top padding_bottom fixed-bottom">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-xl-4">
+                        <form method="POST" action="${pageContext.request.contextPath}/login" class="form-signin">
+                            <img class="mb-4" src="${pageContext.request.contextPath}/static/img/logolarge.png" alt="" width="72" height="72">
+                            <h1 class="h3 mb-4 font-weight-bold">Please sign in</h1>
+                            <div class="form-group">
+                                <input type="text" name="email" class="form-control mb-3" placeholder="Email address" required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+                            </div>
+                            <br>${message}
+                            <button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
+                        </form>
+                        <br><br><br><br><br><br><br><br><br><br>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </c:otherwise>
+</c:choose>
 
 <!-- footer part start-->
 <footer class="footer-area">
@@ -158,45 +187,6 @@
     </div>
 </footer>
 <!-- footer part end-->
-</c:when>
-<c:otherwise>
-    <section class="our_depertment padding_top padding_bottom">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-xl-4">
-                    <form method="POST" action="${pageContext.request.contextPath}/login" class="form-signin">
-                        <img class="mb-4" src="${pageContext.request.contextPath}/static/img/logolarge.png" alt="" width="72" height="72">
-                        <h1 class="h3 mb-4 font-weight-bold">Please sign in</h1>
-                        <div class="form-group">
-                            <input type="text" name="email" class="form-control mb-3" placeholder="Email address" required autofocus>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
-                        </div>
-                        <br>${message}
-                        <div class="checkbox mb-2">
-                            <label>
-                                <input type="checkbox" value="remember-me"> Remember me
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
-                    </form>
-                    <br>
-                    <div class="col-md text-center">
-                        <a href="#">Lost your password?</a>
-                    </div>
-                    <br>
-                    <div class="col-md text-center">
-                        <p>Don't have an account? <a href="#">Sign up here!</a></p>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-</c:otherwise>
-</c:choose>
 
 <div class="center">
     <c:if test="${sqlError}">
@@ -209,8 +199,6 @@
         <p>No patients found</p>
     </c:if>
 </div>
-
-
 
 <!-- jquery plugins here-->
 <script src="${pageContext.request.contextPath}/static/js/jquery-1.12.1.min.js"></script>

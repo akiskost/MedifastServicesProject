@@ -97,8 +97,8 @@
 <!-- Header part end-->
 
 <!-- main-->
-<section class="about_us_text padding_top">
-    <div class="container">
+<section class="about_us_text padding_top padding_bottom">
+    <div class="container table-responsive">
         <div class="row justify-content-center text-center">
             <div class="col-xl-12">
                 <div class="depertment_content">
@@ -153,14 +153,13 @@
         </div>
     </div>
 </section>
-    <br>
 
     <!-- main-->
 
 </c:when>
     <c:otherwise>
         <section class="our_depertment padding_top padding_bottom">
-            <div class="container">
+            <div class="container ">
                 <div class="row justify-content-center text-center">
                     <div class="col-xl-4">
                         <form method="POST" action="${pageContext.request.contextPath}/login" class="form-signin">
@@ -199,6 +198,7 @@
 
 
 <!-- footer part start-->
+
 <footer class="footer-area single-footer-widget">
     <div class="footer section-top-border ">
         <div class="container">

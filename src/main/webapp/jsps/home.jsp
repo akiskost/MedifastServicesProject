@@ -140,7 +140,7 @@
 <!-- about us part end-->
   </c:when>
   <c:otherwise>
-    <section class="our_depertment padding_top padding_bottom">
+    <section class="our_depertment about_us padding_top padding_bottom fixed-bottom">
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-xl-4">
@@ -156,7 +156,7 @@
               <br>${message}
               <button type="submit" class="btn btn-lg btn-primary btn-block" >Sign in</button>
             </form>
-            <br>
+            <br><br><br><br><br><br><br><br><br><br>
           </div>
 
 
