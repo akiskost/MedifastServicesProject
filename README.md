@@ -2,7 +2,7 @@
 
 ---
 
-A Java Web Full Stack Project for medical appointments. Connects to a database and manages entries.\
+A Java Web Full Stack Project (responsive website) for medical appointments. Connects to a database and manages entries.\
 Functionality includes:
 - **Login \ Logout function with credentials**. Content not shown unless logged in
 - **Add/Modify/Search patient entries**
